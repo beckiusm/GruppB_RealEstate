@@ -11,3 +11,10 @@ function understrap_enqueue_styles() {
         wp_get_theme()->get('Version')
     );
 }
+
+function front_page_posts( $query ) {
+    if (is_home()) {
+        $query->set( 'posts_per_page', 6 );
+    }
+}
+add_action( 'pre_get_posts', 'front_page_posts', );
