@@ -22,7 +22,7 @@ $container = get_theme_mod('understrap_container_type');
 			<?php get_template_part('global-templates/left-sidebar-check'); ?>
 
 			<main class="site-main" id="main">
-				<h1>Välkommen du</h1>
+				<h1>Utvalda bostäder</h1>
 				<?php if (have_posts()) : ?>
 
 					<?php
@@ -33,6 +33,7 @@ $container = get_theme_mod('understrap_container_type');
 						)
 					);
 
+					//Första loopen för att skriva ut utvalda
 					if ($loop->have_posts()) :
 						//Do WP_Loop if we get results
 						while ($loop->have_posts()) : $loop->the_post();
@@ -40,8 +41,10 @@ $container = get_theme_mod('understrap_container_type');
 
 							if (filter_var($imgurl, FILTER_VALIDATE_URL) === FALSE) {
 								$imgurl = wp_get_attachment_url($imgurl);
-							} ?>
-							<div class="card" style="width: 18rem;">
+							}
+
+							if (get_field('utvalt_objekt') == true) { ?>
+									<div class="card" style="width: 20rem;">
 								<img class="card-img-top" src="<?php echo $imgurl ?>" alt="Card image cap">
 								<div class="card-body">
 									<h5 class="card-title"><?php echo get_the_title(); ?></h5>
@@ -57,9 +60,41 @@ $container = get_theme_mod('understrap_container_type');
 										<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
 									</div>
 								<?php } ?>
+							<?php }  ?>
+					
+							<?php endwhile; ?>
+							<h2>Övriga bostäder</h1>
+							<?php //Andra loopen för att skriva ut resten `?>
+							<?php
+						//Do WP_Loop if we get results
+						while ($loop->have_posts()) : $loop->the_post();
+							$imgurl = get_field('image', $post->ID);
 
+							if (filter_var($imgurl, FILTER_VALIDATE_URL) === FALSE) {
+								$imgurl = wp_get_attachment_url($imgurl);
+							}
+
+							if (get_field('utvalt_objekt') !== true) { ?>
+									<div class="card" style="width: 14rem;">
+								<img class="card-img-top" src="<?php echo $imgurl ?>" alt="Card image cap">
+								<div class="card-body">
+									<h5 class="card-title"><?php echo get_the_title(); ?></h5>
+									<h5 class="card-text"><?php echo get_field('Address', $post->ID); ?></h5>
+									<p class="card-text"> <?php the_content(); ?></p>
+									<a href="#" class="btn btn-primary">Gå till bostad</a>
+								</div>
+							</div>
+							<div class="pindex">
+								<?php if (has_post_thumbnail()) {
+									echo "has thumbnail"; ?>
+									<div class="pimage">
+										<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+									</div>
+								<?php } ?>
+							<?php }?>
 
 							<?php endwhile; ?>
+
 							</div>
 							<?php
 							if ($loop->max_num_pages > 1) : ?>
@@ -80,7 +115,7 @@ $container = get_theme_mod('understrap_container_type');
 						?>
 
 					<?php else : ?>
-
+					
 						<?php get_template_part('loop-templates/content', 'none'); ?>
 
 					<?php endif; ?>
