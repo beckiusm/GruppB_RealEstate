@@ -17,4 +17,4 @@ function front_page_posts( $query ) {
         $query->set( 'posts_per_page', 6 );
     }
 }
-add_action( 'pre_get_posts', 'front_page_posts', );
+add_action( 'pre_get_posts', 'front_page_posts');
