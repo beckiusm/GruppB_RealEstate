@@ -32,8 +32,13 @@ $container = get_theme_mod('understrap_container_type');
                         <li class="list-group-item">Boarea: <?= get_field('boarea') ?> </li>
                         <li class="list-group-item">Utgångsbud: <?= get_field('utgangsbud') ?></li>
                     </ul>
-    
-
+                    <?php var_dump(get_field('utvalt_objekt')); ?>
+                    <?php if(get_field('utvalt_objekt') == true) {
+                        echo "print this objekt";
+                        } else {
+                         echo "dont print this objekt";   
+                        }?>
+                    <?php the_field('utvalt_objekt'); ?>
                     <?php //understrap_post_nav(); ?>
 
                     <?php
