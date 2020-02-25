@@ -12,7 +12,7 @@ $container = get_theme_mod('understrap_container_type');
 	<?php get_template_part('global-templates/hero'); ?>
 <?php endif; ?>
 
-<div class="wrapper" id="index-wrapper">
+<div class="wrapper container" id="index-wrapper">
 
 	<div class="<?php echo esc_attr($container); ?>" id="content" tabindex="-1">
 
@@ -24,22 +24,50 @@ $container = get_theme_mod('understrap_container_type');
 			<main class="site-main" id="main">
 
 				<?php if (have_posts()) : ?>
+					<?php
+					//Prepare query
+					$loop = new WP_Query(
+						array(
+							'post_type' => 'property',
+						)
+					);
 
-					<?php /* Start the Loop */ ?>
+					if ($loop->have_posts()) :
+						//Do WP_Loop if we get results
+						while ($loop->have_posts()) : $loop->the_post(); ?>
+							<div class="card" style="width: 18rem;">
+								<img class="card-img-top" src="<?php get_field('image')[0]; ?>" alt="Card image cap">
+								<div class="card-body">
+									<h5 class="card-title"><?php echo get_the_title(); ?></h5>
+									<p class="card-text"> <?php the_content(); ?></p>
+									<a href="#" class="btn btn-primary">Gå till bostad</a>
+								</div>
+							</div>
+							<div class="pindex">
+								<?php if (has_post_thumbnail()) { ?>
+									<div class="pimage">
+										<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+									</div>
+								<?php } ?>
 
-					<?php while (have_posts()) : the_post(); ?>
+							</div>
+						<?php endwhile;
+						if ($loop->max_num_pages > 1) : ?>
+							<div id="nav-below" class="navigation">
+								<div class="nav-previous"><?php next_posts_link(__('<span class="meta-nav">&larr;</span> Previous', 'domain')); ?></div>
+								<div class="nav-next"><?php previous_posts_link(__('Next <span class="meta-nav">&rarr;</span>', 'domain')); ?></div>
+							</div>
+					<?php endif;
+					endif;
+					wp_reset_postdata();
 
-						<?php
-
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part('loop-templates/content', get_post_format());
-						?>
-
-					<?php endwhile; ?>
+					/*
+						* Include the Post-Format-specific template for the content.
+						* If you want to override this in a child theme, then include a file
+						* called content-___.php (where ___ is the Post Format name) and that will be used instead.
+						*/
+					//get_template_part('loop-templates/content', get_post_format());
+					?>
 
 				<?php else : ?>
 
@@ -51,7 +79,7 @@ $container = get_theme_mod('understrap_container_type');
 
 
 			<!-- The pagination component -->
-			<?php understrap_pagination(); ?>
+			<?php //understrap_pagination(); ?>
 
 			<!-- Do the right sidebar check -->
 			<?php get_template_part('global-templates/right-sidebar-check'); ?>
