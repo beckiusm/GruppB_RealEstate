@@ -1,6 +1,6 @@
 <?php
 /**
- * Hero setup.
+ * Hero setup
  *
  * @package understrap
  */
@@ -21,4 +21,4 @@ defined( 'ABSPATH' ) || exit;
 
 	</div>
 
-<?php endif; ?>
+<?php endif;

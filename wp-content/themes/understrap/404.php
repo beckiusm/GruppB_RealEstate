@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying 404 pages (not found).
+ * The template for displaying 404 pages (not found)
  *
  * @package understrap
  */
@@ -86,4 +86,4 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </div><!-- #error-404-wrapper -->
 
-<?php get_footer(); ?>
+<?php get_footer();

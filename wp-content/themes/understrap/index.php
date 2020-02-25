@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file.
+ * The main template file
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -72,4 +72,4 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </div><!-- #index-wrapper -->
 
-<?php get_footer(); ?>
+<?php get_footer();

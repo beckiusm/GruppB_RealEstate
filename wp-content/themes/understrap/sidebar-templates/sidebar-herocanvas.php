@@ -1,6 +1,6 @@
 <?php
 /**
- * Sidebar - hero canvas setup.
+ * Sidebar - hero canvas setup
  *
  * @package understrap
  */
@@ -15,4 +15,4 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php dynamic_sidebar( 'herocanvas' ); ?>
 
-<?php endif; ?>
+<?php endif;

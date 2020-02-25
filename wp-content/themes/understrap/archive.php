@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages.
+ * The template for displaying archive pages
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
@@ -70,4 +70,4 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 	</div><!-- #archive-wrapper -->
 
-<?php get_footer(); ?>
+<?php get_footer();

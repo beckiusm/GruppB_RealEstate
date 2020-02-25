@@ -1,6 +1,6 @@
 <?php
 /**
- * Sidebar - hero setup.
+ * Sidebar - hero setup
  *
  * @package understrap
  */
@@ -43,4 +43,4 @@ defined( 'ABSPATH' ) || exit;
 	jQuery( ".carousel-item" ).first().addClass( "active" );
 	</script>
 
-<?php endif; ?>
+<?php endif;
