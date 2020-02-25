@@ -30,8 +30,20 @@ $container = get_theme_mod('understrap_container_type');
                     ?>
                         <!--Loop out images -->
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <?php
+                                foreach ($images as $image) {
+                                    if ($counter === 0) { ?>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="<?= $counter ?>" class="active"></li>
+                                    <?php } else { ?>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="<?= $counter ?>"></li>
+                                <?php }
+                                    $counter++;
+                                } ?>
+                            </ol>
                             <div class="carousel-inner">
                                 <?php
+                                $counter = 0;
                                 foreach ($images as $image) :
                                     $id = $image['id']; // The attachment id of the media
                                     $full_image_url = $image['full_image_url']; //Full size image url
