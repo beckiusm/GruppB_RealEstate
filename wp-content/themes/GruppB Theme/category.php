@@ -26,51 +26,77 @@ $container = get_theme_mod('understrap_container_type');
             <?php get_template_part('global-templates/left-sidebar-check'); ?>
 
             <main class="site-main" id="main">
+                <?php
+                global $wp;
+                $url = home_url($wp->request);
 
-                <?php if (have_posts()) : ?>
+                $category = substr($url, strpos($url, "category") + 9);
+                echo  "current cat: " . $category . "<br>";
 
-                    <header class="page-header">
-                        <?php
-                        the_archive_title('<h1 class="page-title">', '</h1>');
-                        the_archive_description('<div class="taxonomy-description">', '</div>');
-                        ?>
-                    </header><!-- .page-header -->
+                $args = array(
+                    'post_type' => 'property',
+                    'posts_per_page' => -1,
+                    'category' => $category,
+                   
+                );
+                $loop = new WP_Query($args);
+                //var_dump($loop);
+                if ($loop->have_posts()) :
+                   
+                        while ($loop->have_posts()) :
+                            $loop->the_post();
+                            echo "Titel av post" . get_the_title() . "<br>";
 
-                    <?php /* Start the Loop */
-                    foreach ($decoded as $todo) {
-                        $args = [
-                            "post_type" => "property",
-                            "meta_key" => "remote_id",
-                            "meta_value" => $todo->id
-                        ];
+                        endwhile;
+                    endif;
+                    wp_reset_postdata();
+                    if (have_posts()) : ?>
+
+                        <header class="page-header">
+                            <?php
+                            the_archive_title('<h1 class="page-title">', '</h1>');
+                            the_archive_description('<div class="taxonomy-description">', '</div>');
+                            ?>
+                        </header><!-- .page-header -->
+
+                        <?php /* Start the Loop */
+
+
+
+                        foreach ($decoded as $todo) {
+                            $args = [
+                                "post_type" => "property",
+                                "meta_key" => "remote_id",
+                                "meta_value" => $todo->id
+                            ];
+                            $query = new WP_Query($args);
+                            if ($query->have_posts()) {
+                                while ($query->have_posts()) {
+                                    $query->the_post();
+                                    $postid = get_the_ID();
+                                    updatePost($postid, $todo->title, $todo->id, $todo->userId, $todo->completed);
+                                }
+                            } else {
+                                newPost($todo->title, $todo->id, $todo->userId, $todo->completed);
+                            }
+                        }
                         $query = new WP_Query($args);
                         if ($query->have_posts()) {
                             while ($query->have_posts()) {
                                 $query->the_post();
                                 $postid = get_the_ID();
-                                updatePost($postid, $todo->title, $todo->id, $todo->userId, $todo->completed);
+                                updatePost($postid, "hohoho", 43, 1, true);
                             }
                         } else {
-                            newPost($todo->title, $todo->id, $todo->userId, $todo->completed);
+                            newPost("Hejsan", 43, 1, false);
                         }
-                    }
-                    $query = new WP_Query($args);
-                    if ($query->have_posts()) {
-                        while ($query->have_posts()) {
-                            $query->the_post();
-                            $postid = get_the_ID();
-                            updatePost($postid, "hohoho", 43, 1, true);
-                        }
-                    } else {
-                        newPost("Hejsan", 43, 1, false);
-                    }
-                    wp_reset_query();
+                        wp_reset_query();
 
-                else : ?>
+                    else : ?>
 
-                    <?php get_template_part('loop-templates/content', 'none'); ?>
+                        <?php get_template_part('loop-templates/content', 'none'); ?>
 
-                <?php endif; ?>
+                    <?php endif; ?>
 
             </main><!-- #main -->
 
