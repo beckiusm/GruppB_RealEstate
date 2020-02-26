@@ -33,7 +33,7 @@ add_action( 'pre_get_posts', 'front_page_posts' );
 
 function query_post_type( $query ) {
 	if ( ( is_category() || is_tag() ) && ! is_admin() ) {
-		$query->set( 'post_type', 'property' );
+		$query->set( 'post_type', array( 'nav_menu_item', 'property' ) );
 		return $query;
 	}
 }
