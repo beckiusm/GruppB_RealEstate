@@ -70,7 +70,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						<?php endwhile; ?>
 					</div>
 					<h2>Övriga bostäder</h1>
-					<div class="row mt-3">
+					<div class="row">
 						<?php
 						// Do WP_Loop if we get results
 						while ( $loop_other->have_posts() ) :
@@ -80,7 +80,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 								$imgurl = wp_get_attachment_url( $imgurl );
 							}
 							?>
-						<div class="card flex-row flex-wrap mt-3 p-2">
+						<div class="card flex-row flex-wrap col-md-12 mt-3 p-2">
 							<div class="card-header">
 								<a href="<?php echo get_the_permalink(); ?>"><img src="<?php echo $imgurl; ?>" alt="Image of property" style="width: 300px;"></a>
 							</div>
