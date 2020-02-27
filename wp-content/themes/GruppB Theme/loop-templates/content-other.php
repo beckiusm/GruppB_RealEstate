@@ -13,14 +13,12 @@ $loop_other = new WP_Query(
 	// Do WP_Loop if we get results
 	while ( $loop_other->have_posts() ) :
 		$loop_other->the_post();
-		$imgurl = get_field( 'image' );
-		if ( filter_var( $imgurl, FILTER_VALIDATE_URL ) === false ) {
-			$imgurl = wp_get_attachment_url( $imgurl );
-		}
+		$imgid  = get_field( 'image' );
+		$imgurl = wp_get_attachment_image_src( $imgid, 'medium' )[0];
 		?>
 	<div class="card flex-row flex-wrap col-md-13 mt-3 p-2">
 		<div class="card-header">
-			<a href="<?php echo get_the_permalink(); ?>"><img src="<?php echo $imgurl; ?>" alt="Image of property" style="width: 300px;"></a>
+			<a href="<?php echo get_the_permalink(); ?>"><img src="<?php echo $imgurl; ?>" alt="Image of property"></a>
 		</div>
 		<div class="card-block px-2">
 			<a href="<?php echo get_the_permalink(); ?>"><h4 class="card-title"><?php echo get_the_title(); ?></h4></a>

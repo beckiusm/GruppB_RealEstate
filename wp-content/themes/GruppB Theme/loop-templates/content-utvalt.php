@@ -16,17 +16,15 @@
 		// Do WP_Loop if we get results
 		while ( $loop_utvalt->have_posts() ) :
 			$loop_utvalt->the_post();
-			$imgurl = get_field( 'image' );
-			if ( filter_var( $imgurl, FILTER_VALIDATE_URL ) === false ) {
-				$imgurl = wp_get_attachment_url( $imgurl );
-			}
+			$imgid  = get_field( 'image' );
+			$imgurl = wp_get_attachment_image_src( $imgid, 'medium' )[0];
 			?>
 			<div class="card col-md mr-3" style="width: 14rem;">
 			<a href="<?php echo get_the_permalink(); ?>"><img class="card-img-top" src="<?php echo $imgurl; ?>" alt="Card image cap"></a>
 				<div class="card-body">
 				<a href="<?php echo get_the_permalink(); ?>"><h3 class="card-title"><?php echo get_the_title(); ?></h5></a>
 					<h5 class="card-text">Adress : <?php echo get_field( 'address' ); ?></h5>
-					<p class="card-text"> <?php //the_content(); ?></p>
+					<p class="card-text"> <?php // the_content(); ?></p>
 				</div>
 			</div>
 
