@@ -1,55 +1,55 @@
 <?php
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 get_header();
 
-$container = get_theme_mod( 'understrap_container_type' );
+$container = get_theme_mod('understrap_container_type');
 ?>
 
-<?php if ( is_front_page() && is_home() ) : ?>
-	<?php get_template_part( 'global-templates/hero' ); ?>
+<?php if (is_front_page() && is_home()) : ?>
+	<?php get_template_part('global-templates/hero'); ?>
 <?php endif; ?>
 
 <div class="wrapper container-fluid" id="index-wrapper">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+	<div class="<?php echo esc_attr($container); ?>" id="content" tabindex="-1">
 
 		<div class="row">
 
-		<div class="col-md content-area" id="primary">
+			<div class="col-md content-area" id="primary">
 
-			<main class="site-main content" id="main">
-				<h1>Utvalda bostäder</h1>
-				<?php
-				if ( have_posts() ) :
-					get_template_part( 'loop-templates/content-utvalt', 'none' );
-					?>
-					<h2>Övriga bostäder</h1>
+				<main class="site-main content" id="main">
+					<h1>Utvalda bostäder</h1>
 					<?php
-					get_template_part( 'loop-templates/content-other', 'none' );
-				else :
-					get_template_part( 'loop-templates/content', 'none' );
-				endif;
-				?>
-
-			</main><!-- #main -->
-
-
-			<!-- The pagination component -->
+					if (have_posts()) :
+						get_template_part('loop-templates/content-utvalt', 'none');
+					?>
+						<h2>Övriga bostäder</h1>
 						<?php
-
-						understrap_pagination();
+						get_template_part('loop-templates/content-other', 'none');
+					else :
+						get_template_part('loop-templates/content', 'none');
+					endif;
 						?>
-		</div>
-			<!-- Do the right sidebar check -->
-						<?php get_template_part( 'sidebar-templates/sidebar-primary', 'right' ); ?>
 
-			</div><!-- .row -->
-			
+				</main><!-- #main -->
+
+
+				<!-- The pagination component -->
+				<?php
+
+				understrap_pagination();
+				?>
+			</div>
+			<!-- Do the right sidebar check -->
+			<?php get_template_part('sidebar-templates/sidebar-primary', 'right'); ?>
+
+		</div><!-- .row -->
+
 	</div><!-- #content -->
 
 </div><!-- #index-wrapper -->
 
-						<?php get_footer(); ?>
+<?php get_footer(); ?>
