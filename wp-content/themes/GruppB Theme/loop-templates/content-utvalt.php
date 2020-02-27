@@ -22,12 +22,11 @@
 			}
 			?>
 			<div class="card col-md mr-3" style="width: 14rem;">
-				<img class="card-img-top" src="<?php echo $imgurl; ?>" alt="Card image cap">
+			<a href="<?php echo get_the_permalink(); ?>"><img class="card-img-top" src="<?php echo $imgurl; ?>" alt="Card image cap"></a>
 				<div class="card-body">
-					<h5 class="card-title"><?php echo get_the_title(); ?></h5>
-					<h5 class="card-text"><?php echo get_field( 'Address' ); ?></h5>
-					<p class="card-text"> <?php the_content(); ?></p>
-					<a href="<?php echo get_the_permalink(); ?>" class="btn btn-primary">Gå till bostad</a>
+				<a href="<?php echo get_the_permalink(); ?>"><h3 class="card-title"><?php echo get_the_title(); ?></h5></a>
+					<h5 class="card-text">Adress : <?php echo get_field( 'address' ); ?></h5>
+					<p class="card-text"> <?php //the_content(); ?></p>
 				</div>
 			</div>
 

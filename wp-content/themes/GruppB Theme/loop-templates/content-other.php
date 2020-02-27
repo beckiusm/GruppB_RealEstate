@@ -18,13 +18,13 @@ $loop_other = new WP_Query(
 			$imgurl = wp_get_attachment_url( $imgurl );
 		}
 		?>
-	<div class="card flex-row flex-wrap col-md-12 mt-3 p-2">
+	<div class="card flex-row flex-wrap col-md-13 mt-3 p-2">
 		<div class="card-header">
 			<a href="<?php echo get_the_permalink(); ?>"><img src="<?php echo $imgurl; ?>" alt="Image of property" style="width: 300px;"></a>
 		</div>
 		<div class="card-block px-2">
 			<a href="<?php echo get_the_permalink(); ?>"><h4 class="card-title"><?php echo get_the_title(); ?></h4></a>
-			<p class="card-text">Adress : <?php echo get_field( 'Address' ); ?></p>
+			<p class="card-text">Adress : <?php echo get_field( 'address' ); ?></p>
 			<p class="card-text">Utgångsbud : <?php echo get_field( 'utgangsbud' ) . ' kr '; ?></p>
 			<p class="card-text">BoArea : <?php echo get_field( 'boarea' ) . 'm2 '; ?></p>
 			<p class="card-text">Antal rum : <?php echo get_field( 'rooms' ) . ' rum '; ?></p>
