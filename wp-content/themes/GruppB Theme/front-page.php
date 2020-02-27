@@ -18,8 +18,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 		<div class="row">
 
-			<!-- Do the left sidebar check and opens the primary div -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
+		<div class="col-md content-area" id="primary">
 
 			<main class="site-main content" id="main">
 				<h1>Utvalda bostäder</h1>
@@ -112,9 +111,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 						understrap_pagination();
 						?>
-
+		</div>
 			<!-- Do the right sidebar check -->
-						<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
+						<?php get_template_part( 'sidebar-templates/sidebar-primary', 'right' ); ?>
 
 			</div><!-- .row -->
 			
