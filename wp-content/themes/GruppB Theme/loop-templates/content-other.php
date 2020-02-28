@@ -16,9 +16,9 @@ $loop_other = new WP_Query(
 		$imgid  = get_field( 'image' );
 		$imgurl = wp_get_attachment_image_src( $imgid, 'medium' )[0];
 		?>
-		<div class="card flex-row flex-wrap col-md-12 mt-3">
+		<div class="card flex-row flex-wrap col-md-12 p-0 mt-3">
 			<a href="<?php echo get_the_permalink(); ?>"><img src="<?php echo $imgurl; ?>" alt="Image of property"></a>
-			<div class="card-block px-2">
+			<div class="card-block p-2">
 				<a href="<?php echo get_the_permalink(); ?>">
 					<h4 class="card-title"><?php echo get_the_title(); ?></h4>
 				</a>
