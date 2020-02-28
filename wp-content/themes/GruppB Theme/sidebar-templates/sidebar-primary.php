@@ -1,2 +1,2 @@
 
-<?php echo do_shortcode( '[searchandfilter fields="search,category,post_tag"]' ); ?>
+<?php get_search_form() ?>
