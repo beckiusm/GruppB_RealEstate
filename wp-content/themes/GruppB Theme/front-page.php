@@ -27,6 +27,7 @@ $container = get_theme_mod('understrap_container_type');
 						get_template_part('loop-templates/content-utvalt', 'none');
 					?>
 						<h2>Övriga bostäder</h1>
+					
 						<?php
 						get_template_part('loop-templates/content-other', 'none');
 					else :

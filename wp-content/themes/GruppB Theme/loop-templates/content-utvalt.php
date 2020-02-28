@@ -22,9 +22,9 @@
 			<div class="card col-md mr-3" style="width: 14rem;">
 			<a href="<?php echo get_the_permalink(); ?>"><img class="card-img-top" src="<?php echo $imgurl; ?>" alt="Card image cap"></a>
 				<div class="card-body">
-				<a href="<?php echo get_the_permalink(); ?>"><h3 class="card-title"><?php echo get_the_title(); ?></h5></a>
-					<h5 class="card-text">Adress : <?php echo get_field( 'address' ); ?></h5>
-					<p class="card-text"> <?php // the_content(); ?></p>
+				<a href="<?php echo get_the_permalink(); ?>">
+					<h5 class="card-title"><?php echo get_the_title(); ?></h5></a>
+					<p class="card-text">Adress : <?php echo get_field( 'address' ); ?></p>
 				</div>
 			</div>
 
