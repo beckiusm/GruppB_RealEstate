@@ -546,7 +546,7 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 
 			//grab search term for prefilling search input
 			if(isset($wp_query->query['s']))
-			{//!"�$%^&*()
+			{//!"�$%^&*()
 				$this->searchterm = trim(get_search_query());
 			}
 
@@ -1096,8 +1096,7 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 			}
 
 			$returnvar .= '
-				<form action="" method="post" class="searchandfilter'.$addclass.'">
-					<div>';
+				<form action="" method="post" class="searchandfilter'.$addclass.'">';
 
 					if(!in_array("post_types", $fields))
 					{//then the user has not added it to the fields list so the user does not want a post types drop down... so add (if any) the post types to a hidden attribute
@@ -1111,7 +1110,7 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 						}
 					}
 					$returnvar .= '
-						<ul>';
+						<div class="form-group">';
 
 						$i = 0;
 						
@@ -1121,14 +1120,15 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 							
 							if($field == "search")
 							{
-								$returnvar .=  '<li>';
+								// $returnvar .=  '<li>';
 								if($labels[$i]!="")
 								{
 									$returnvar .= "<h4>".$labels[$i]."</h4>";
 								}
 								$clean_searchterm = (esc_attr($this->searchterm));
-								$returnvar .=  '<input type="text" name="'.SF_FPRE.'search" placeholder="'.$search_placeholder.'" value="'.$clean_searchterm.'">';
-								$returnvar .=  '</li>';
+								$returnvar .=  '<input class="form-control" type="text" name="'.SF_FPRE.'search" placeholder="'.$search_placeholder.'" value="'.$clean_searchterm.'">';
+								// $returnvar .=  '</li>';
+								$returnvar .=  '</div>';
 							}
 							else if($field == "post_types") //a post can only every have 1 type, so checkboxes & multiselects will always be "OR"
 							{//build field array
@@ -1160,7 +1160,8 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 
 						}
 
-						$returnvar .='<li>';
+						// $returnvar .='<li>';
+						$returnvar .='<div class="form-group">';
 						
 						if($add_search_param==1)
 						{
@@ -1175,10 +1176,10 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 						
 						$returnvar .=
 							'<input type="hidden" name="'.SF_FPRE.'submitted" value="1">
-							<input type="submit" value="'.$submitlabel.'">
-						</li>';
+							<input class="btn btn-primary" type="submit" value="'.$submitlabel.'">
+						</div';
 
-						$returnvar .= "</ul>";
+						// $returnvar .= "</ul>";
 					$returnvar .= '</div>
 				</form>';
 
@@ -1194,7 +1195,7 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 
 			$taxonomychildren = (object)$taxonomychildren;
 
-			$returnvar .= "<li>";
+			$returnvar .= "<div class='form-group'>";
 			
 			if($labels[$i]!="")
 			{
@@ -1210,10 +1211,10 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 			if($types[$i]=="daterange")
 			{
 				$returnvar .= $this->generate_date($taxonomychildren, $field, 0);
-				$returnvar .= "</li><li>";
+				$returnvar .= "</div><div class='form-group'>";
 				$returnvar .= $this->generate_date($taxonomychildren, $field, 1);
 			}
-			$returnvar .= "</li>";
+			$returnvar .= "</div>";
 			
 			return $returnvar;
 		}
@@ -1332,7 +1333,8 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 
 			if($taxonomydata)
 			{
-				$returnvar .= "<li>";
+				//här börjar select-diven
+				$returnvar .= "<div class='form-group' id='TEST'>";
 				
 				if($labels[$i]!="")
 				{
@@ -1440,7 +1442,8 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 					}
 				}
 				
-				$returnvar .= "</li>";
+				$returnvar .= "</div>";
+				//här slutar select-diven
 			}
 			
 			return $returnvar;
@@ -1488,7 +1491,7 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 		//use wp array walker to enable hierarchical display
 		public function generate_wp_multiselect($args, $name, $currentid = 0, $labels = null, $defaultval = "0")
 		{
-			$returnvar = '<select multiple="multiple" name="'.$args['sf_name'].'[]" class="postform">';
+			$returnvar = '<select multiple="multiple" name="'.$args['sf_name'].'[]" class="postform form-control">';
 			$returnvar .= walk_taxonomy('multiselect', $args);
 			$returnvar .= "</select>";
 			
@@ -1532,7 +1535,7 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 		{
 			$returnvar = "";
 
-			$returnvar .= '<select class="postform" name="'.SF_FPRE.$name.'">';
+			$returnvar .= '<select class="postform form-control" name="'.SF_FPRE.$name.'">';
 			if(isset($labels))
 			{
 				if($labels->all_items!="")
@@ -1683,7 +1686,7 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 						}
 					}
 				}
-				$returnvar .= '<li class="cat-item"><label><input class="postform" type="radio" name="'.SF_FPRE.$name.'[]" value="'.$dropdown->term_id.'"'.$checked.'> '.$dropdown->cat_name.'</label></li>';
+				$returnvar .= '<li class="cat-item"><label><input class="postform form-control" type="radio" name="'.SF_FPRE.$name.'[]" value="'.$dropdown->term_id.'"'.$checked.'> '.$dropdown->cat_name.'</label></li>';
 			
 			}
 			
@@ -1710,7 +1713,7 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 				}
 			}
 			
-			$returnvar .= '<input class="postform" type="date" name="'.SF_FPRE.$name.'[]" value="' . $current_date . '" />';
+			$returnvar .= '<input class="postform form-control" type="date" name="'.SF_FPRE.$name.'[]" value="' . $current_date . '" />';
 
 			return $returnvar;
 		}
