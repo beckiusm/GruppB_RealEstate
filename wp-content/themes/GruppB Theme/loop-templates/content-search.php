@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mt-3">
 	<?php
 	// Do WP_Loop if we get results
 	get_search_query();
@@ -7,7 +7,7 @@
 		$imgid  = get_field( 'image' );
 		$imgurl = wp_get_attachment_image_src( $imgid, 'medium' )[0];
 		?>
-		<div class="card flex-row flex-wrap col-md-12 p-0 mt-3">
+		<div class="card flex-row flex-wrap col-md-12 p-0 mb-3">
 			<a href="<?php echo get_the_permalink(); ?>"><img src="<?php echo $imgurl; ?>" alt="Image of property"></a>
 			<div class="card-block p-2">
 				<a href="<?php echo get_the_permalink(); ?>">
@@ -20,4 +20,5 @@
 			</div>
 		</div>
 	<?php endwhile; ?>
+	<?php understrap_pagination(); ?>
 </div>

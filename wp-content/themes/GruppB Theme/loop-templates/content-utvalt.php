@@ -1,7 +1,6 @@
 <?php
 	// Prepare query
-	$paged       = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-	$loop_utvalt = new WP_Query(
+	$loop = new WP_Query(
 		array(
 			'post_type'      => 'property',
 			'posts_per_page' => 3,
@@ -9,13 +8,13 @@
 			'meta_value'     => true,
 		)
 	);
-	if ( $loop_utvalt->have_posts() ) :
+	if ( $loop->have_posts() ) :
 		?>
 	<div class="row mb-3">
 		<?php
 		// Do WP_Loop if we get results
-		while ( $loop_utvalt->have_posts() ) :
-			$loop_utvalt->the_post();
+		while ( $loop->have_posts() ) :
+			$loop->the_post();
 			$imgid  = get_field( 'image' );
 			$imgurl = wp_get_attachment_image_src( $imgid, 'medium' )[0];
 			?>
@@ -30,4 +29,6 @@
 
 		<?php endwhile; ?>
 	</div>
-	<?php endif; ?>
+		<?php
+		wp_reset_postdata();
+endif; ?>
