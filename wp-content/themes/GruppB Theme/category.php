@@ -24,7 +24,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<h1><?php echo single_cat_title(); ?></h1>
 					<?php
 					if ( have_posts() ) :
-						get_template_part( 'loop-templates/content', 'content' );
+                        get_template_part( 'loop-templates/content', 'category-utvalt' );
+                    ?>
+                    <h1>Övriga objekt</h1>
+                    <?php
+                        get_template_part( 'loop-templates/content', 'content-other' );
 					else :
 						get_template_part( 'loop-templates/content', 'none' );
 					endif;

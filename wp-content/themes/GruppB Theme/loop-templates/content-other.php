@@ -31,5 +31,7 @@ $wp_query = new WP_Query(
 		</div>
 	<?php endwhile;
 	?>
-	<?php understrap_pagination(); ?>
+	<?php understrap_pagination(); 
+	wp_reset_postdata();
+	?>
 </div>
