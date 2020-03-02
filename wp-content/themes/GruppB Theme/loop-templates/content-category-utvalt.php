@@ -19,7 +19,7 @@
 			$imgurl = wp_get_attachment_image_src( $imgid, 'large' )[0];
 			?>
 			<div class="card col-md p-0 mr-3">
-			<a href="<?php echo get_the_permalink(); ?>"><img class="card-img-top" src="<?php echo $imgurl; ?>" alt="Card image cap"></a>
+			<a href="<?php echo get_the_permalink(); ?>"><img class="cat-image" src="<?php echo $imgurl; ?>" alt="Card image cap"></a>
 				<div class="card-body">
 				<a href="<?php echo get_the_permalink(); ?>">
 					<h5 class="card-title"><?php echo get_the_title(); ?></h5></a>

@@ -24,8 +24,14 @@
     object-fit: cover;
 }
 
-.d-block {
+.carousel-item > .d-block {
     width: 100%;
     height: 500px;
+    object-fit: cover;
+}
+
+.cat-image {
+    width: 100%;
+    height: 400px;
     object-fit: cover;
 }
