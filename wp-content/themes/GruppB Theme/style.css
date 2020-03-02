@@ -35,3 +35,10 @@
     height: 400px;
     object-fit: cover;
 }
+
+#main-menu a {
+    color: white;
+}
+#main-menu a:hover {
+    text-decoration: underline;
+}
