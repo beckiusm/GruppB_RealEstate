@@ -1,18 +1,8 @@
-<?php
-
-$loop_other = new WP_Query(
-	array(
-		'post_type'      => 'property',
-		'posts_per_page' => 5,
-		'paged'          => $paged,
-	)
-);
-?>
 <div class="row">
 	<?php
 	// Do WP_Loop if we get results
-	while ( $loop_other->have_posts() ) :
-		$loop_other->the_post();
+	while ( have_posts() ) :
+		the_post();
 		$imgid  = get_field( 'image' );
 		$imgurl = wp_get_attachment_image_src( $imgid, 'medium' )[0];
 		?>

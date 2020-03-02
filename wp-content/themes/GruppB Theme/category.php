@@ -24,7 +24,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<h1><?php echo single_cat_title(); ?></h1>
 					<?php
 					if ( have_posts() ) :
-						get_template_part( 'loop-templates/content', 'search' );
+						get_template_part( 'loop-templates/content', 'content' );
 					else :
 						get_template_part( 'loop-templates/content', 'none' );
 					endif;
