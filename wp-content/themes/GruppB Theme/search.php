@@ -24,7 +24,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<h1>Sökresultat</h1>
 					<?php
 					if ( have_posts() ) :
-						get_template_part( 'loop-templates/content-search', 'none' );
+						get_template_part( 'loop-templates/content', 'search' );
 					else :
 						get_template_part( 'loop-templates/content', 'none' );
 					endif;

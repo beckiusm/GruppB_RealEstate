@@ -5,8 +5,6 @@ $loop_other = new WP_Query(
 		'post_type'      => 'property',
 		'posts_per_page' => 5,
 		'paged'          => $paged,
-		'meta_key'       => 'utvalt_objekt',
-		'meta_value'     => 0,
 	)
 );
 ?>
