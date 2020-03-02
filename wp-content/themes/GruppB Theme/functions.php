@@ -33,6 +33,9 @@ add_action( 'pre_get_posts', 'front_page_posts' ); */
  */
 
 function query_post_type( $query ) {
+	if ( $query->get( 'post_type' ) === 'nav_menu_item' ) {
+		return $query;
+	}
 	if ( ( is_search() || is_home() || is_category() || is_tag() ) && ! is_admin() ) {
 		$query->set( 'post_type', 'property' );
 		return $query;
