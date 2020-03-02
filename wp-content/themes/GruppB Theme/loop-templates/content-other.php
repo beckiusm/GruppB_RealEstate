@@ -1,6 +1,7 @@
 <?php
 $wp_query = new WP_Query(
 	array(
+		'cat' => get_query_var('cat'),
 		'post_type'      => 'property',
 		'posts_per_page' => 5,
 		'paged'          => $paged,
