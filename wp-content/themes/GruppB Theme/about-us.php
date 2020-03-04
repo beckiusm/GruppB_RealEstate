@@ -4,20 +4,20 @@
 * Template Name: About-us
 */
 // Exit if accessed directly.
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$container = get_theme_mod('understrap_container_type');
+$container = get_theme_mod( 'understrap_container_type' );
 ?>
 
-<?php if (is_front_page() && is_home()) : ?>
-	<?php get_template_part('global-templates/hero'); ?>
+<?php if ( is_front_page() && is_home() ) : ?>
+	<?php get_template_part( 'global-templates/hero' ); ?>
 <?php endif; ?>
 
 <div class="wrapper container-fluid" id="index-wrapper">
 
-	<div class="<?php echo esc_attr($container); ?>" id="content" tabindex="-1">
+	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
 		<div class="row">
 
@@ -27,11 +27,11 @@ $container = get_theme_mod('understrap_container_type');
 					
 					<h1>Om oss test</h1>
 					<?php
-					if(have_posts()) {
+					if ( have_posts() ) {
 						the_post();
 						the_content();
 					}
- 
+
 					?>
 				</main><!-- #main -->
 
@@ -43,7 +43,7 @@ $container = get_theme_mod('understrap_container_type');
 				?>
 			</div>
 			<!-- Do the right sidebar check -->
-			<?php get_template_part('sidebar-templates/sidebar-primary', 'right'); ?>
+			<?php get_template_part( 'sidebar-templates/sidebar-primary', 'right' ); ?>
 
 		</div><!-- .row -->
 

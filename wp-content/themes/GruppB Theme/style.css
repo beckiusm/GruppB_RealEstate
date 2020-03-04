@@ -42,3 +42,36 @@
 #main-menu a:hover {
     text-decoration: underline;
 }
+
+.container:focus {
+    border:none;
+}
+
+.card:hover {
+    border: 1px solid lightblue;
+}
+
+.card-title {
+    color: cornflowerblue;
+}
+
+.card-text-address > a {
+   
+}
+
+.card-categories a, .card-categories {
+    color: black;
+}
+
+.card-tags a, .card-tags {
+    color: chocolate;
+    font-style: italic;
+}
+
+.card-tags a:hover {
+    color: orange;
+}
+card-text-price
+card-text-area
+card-text-rooms
+card-text-visning
