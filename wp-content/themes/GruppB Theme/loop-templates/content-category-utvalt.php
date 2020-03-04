@@ -24,7 +24,7 @@ if ( $loop->have_posts() ) :
 						<h5 class="card-title"><?php echo esc_html( get_the_title() ); ?></h5>
 					</a>
 					<p class="card-text">Adress : <?php echo esc_html( get_field( 'address' ) ); ?>
-					<p class="card-text">Pris : <?php echo esc_html( get_field( 'utgangsbud' ) ) . ' kr'; ?>
+					<p class="card-text">Pris : <?php echo esc_html( get_field( 'utgangspris' ) ) . ' kr'; ?>
 					<p class="card-text">BoArea : <?php echo esc_html( get_field( 'boarea' ) ) . 'm2' ; ?>
 					<p class="card-text">Adress : <?php echo esc_html( get_field( 'address' ) ); ?>
 					<p class="card-text">Visningsdatum : <?php echo esc_html( get_field( 'visning' ) ); ?>

@@ -16,14 +16,6 @@ function understrap_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'understrap_enqueue_styles' );
 
-
-function front_page_posts( $query ) {
-	if ( is_home() ) {
-		$query->set( 'posts_per_page', 5 );
-	}
-}
-add_action( 'pre_get_posts', 'front_page_posts' );
-
 /**
  * Change default post types shown on category page
  */

@@ -1,5 +1,5 @@
 <?php
-$the_loop = new WP_Query(
+$wp_query = new WP_Query(
 	array(
 		'cat'            => get_query_var( 'cat' ),
 		'post_type'      => 'property',
@@ -12,8 +12,8 @@ $the_loop = new WP_Query(
 ?>
 <div class="row mt-3">
 	<?php
-	while ( $the_loop->have_posts() ) :
-		$the_loop->the_post();
+	while ( $wp_query->have_posts() ) :
+		$wp_query->the_post();
 		$imgid  = get_field( 'image' );
 		$imgurl = wp_get_attachment_image_src( $imgid, 'medium' )[0];
 		?>
