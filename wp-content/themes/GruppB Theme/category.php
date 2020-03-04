@@ -21,7 +21,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<div class="col-md content-area" id="primary">
 
 				<main class="site-main content" id="main">
-					<h1><?php echo single_cat_title(); ?></h1>
+					<h1><?php echo esc_html( single_cat_title() ); ?></h1>
 					<?php
 					if ( have_posts() ) :
 						get_template_part( 'loop-templates/content', 'category-utvalt' );
