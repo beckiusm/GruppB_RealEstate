@@ -23,6 +23,7 @@
 				<a href="<?php echo esc_url( get_the_permalink() ); ?>">
 					<h5 class="card-title"><?php echo esc_html( get_the_title() ); ?></h5></a>
 					<p class="card-text">Adress : <?php echo esc_html( get_field( 'address' ) ); ?></p>
+					<p class="card-text">Visning : <?php echo esc_html( get_field( 'visning' ) ); ?></p>
 				</div>
 			</div>
 		<?php 
