@@ -19,16 +19,13 @@ if ( $loop->have_posts() ) :
 			?>
 			<div class="card col-md p-0 mr-3">
 				<a href="<?php echo esc_url( get_the_permalink() ); ?>"><img class="cat-image" src="<?php echo esc_url( $imgurl ); ?>" alt="Card image cap"></a>
-				<div class="card-body">
+				<div class="card-body p-2">
 					<a href="<?php echo esc_url( get_the_permalink() ); ?>">
-						<h5 class="card-title"><?php echo esc_html( get_the_title() ); ?></h5>
-					</a>
-					<p class="card-text">Adress : <?php echo esc_html( get_field( 'address' ) ); ?>
-					<p class="card-text">Pris : <?php echo esc_html( get_field( 'utgangspris' ) ) . ' kr'; ?>
-					<p class="card-text">BoArea : <?php echo esc_html( get_field( 'boarea' ) ) . 'm2'; ?>
-					<p class="card-text">Adress : <?php echo esc_html( get_field( 'address' ) ); ?>
-					<p class="card-text">Visningsdatum : <?php echo esc_html( get_field( 'visning' ) ); ?>
-				</p>
+					<h5 class="card-title"><?php echo esc_html( get_the_title() ); ?></h5></a>
+					<p class="card-text-address m-0"><?php echo esc_html( get_field( 'address' ) ); ?></p>
+					<p class="card-text-left m-0"><?php echo esc_html( get_field( 'boarea' ) ) . ' m² '; ?></p>
+					<p class="card-text-right m-0"><?php echo esc_html( get_field( 'rooms' ) ) . ' rum '; ?></p>
+					<p class="card-text-price-utvalt m-0"><?php echo esc_html( number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></p>
 				</div>
 			</div>
 
