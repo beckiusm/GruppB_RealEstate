@@ -12,6 +12,12 @@
  Text Domain:  gruppB
 */
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 .card-img-top {
     width: 100%;
     height: 200px;
@@ -19,8 +25,8 @@
 }
 
 .loop-image {
-    width: 300px;
-    height: 100%;
+    width: 100%;
+    height: 220px;
     object-fit: cover;
 }
 
@@ -63,15 +69,36 @@
     color: black;
 }
 
-.card-tags a, .card-tags {
-    color: chocolate;
+.card-tags {
+    position: absolute;
+    bottom: 0;
+}
+
+.card-tags a {
+    color: rgb(223, 103, 22);
     font-style: italic;
 }
 
 .card-tags a:hover {
     color: orange;
 }
-card-text-price
-card-text-area
-card-text-rooms
-card-text-visning
+
+.card-text-price {
+    font-size: 2em;
+    font-weight: 500;
+    color: rgb(14, 201, 70);
+}
+
+.card-text-area {
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+.card-text-rooms {
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+.card-text-visning {
+    font-size: 1.5em;
+}
