@@ -75,3 +75,7 @@ card-text-price
 card-text-area
 card-text-rooms
 card-text-visning
+
+input.btn.btn-primary {
+    background: red !important;
+}

@@ -91,7 +91,7 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 		
 		public function of_enqueue_styles()
 		{
-			wp_enqueue_style( 'searchandfilter', SEARCHANDFILTER_PLUGIN_URL . '/style.css', false, 1.0, 'all' );
+			wp_enqueue_style( 'searchandfilter', SEARCHANDFILTER_PLUGIN_URL . '/style.css', false, 1.0, 'all' ); //PATRIK
 		}
 		public function of_enqueue_admin_ss($hook)
 		{
