@@ -50,7 +50,7 @@ $wp_query = new WP_Query(
 					$counter = count( $tags );
 					foreach ( $tags as $tag ) {
 						$comma = ( $counter > 1 ) ? ', ' : '';
-						echo '<span class="card-tag"><a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a>' . esc_html( $comma ) . '</span>';
+						echo '<span class="card-tag"><a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . esc_html( strtolower( $tag->name ) ) . '</a>' . esc_html( $comma ) . '</span>';
 						$counter--;
 					}
 				}
