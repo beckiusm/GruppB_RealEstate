@@ -69,3 +69,65 @@ function wporg_dashboard_widget_render()
         echo "<br>";
     }
 }
+
+
+add_action('restrict_manage_posts', 'property_filter_posts_by_complete');
+function property_filter_posts_by_complete()
+{
+	$type = $_GET['post_type'] ?? 'property';
+	// Only add filter to post type you want.
+	if ('property' == $type) {
+		$values = array(
+			'Utvald' => 'complete',
+			'Icke-utvald' => 'incomplete',
+		);
+	?>
+		<select name="status">
+			<option value=""><?php _e('Alla statusar'); ?></option>
+			<?php
+			$current_v = $_GET['status'] ?? '';
+			foreach ($values as $label => $value) {
+				printf(
+					'<option value="%s"%s>%s</option>',
+					$value,
+					$value == $current_v ? ' selected="selected"' : '',
+					$label
+				);
+			}
+			?>
+		</select>
+<?php
+	}
+}
+add_filter( 'parse_query', 'property_filter' );
+function property_filter( $query )
+{
+	global $pagenow;
+	$type = $_GET['post_type'] ?? 'property';
+	$status = $_GET['status'] ?? '';
+	if ('property' == $type && is_admin() && $pagenow == 'edit.php' && $status != '') {
+		$query->query_vars['meta_key'] = 'utvalt_objekt';
+		if ('complete' == $status) {
+			$query->query_vars['meta_value'] = 1;
+		}
+		if ('incomplete' == $status) {
+			$query->query_vars['meta_value'] = [0];
+		}
+	}
+}
+add_filter( 'manage_property_posts_columns', 'custom_property_sortable_columns' );
+function custom_property_sortable_columns( $columns )
+{
+	$columns['complete'] = __('Utvalda', 'dashboard-plugin');
+	return $columns;
+}
+// Populate columns with data
+add_action('manage_property_posts_custom_column', 'custom_property_column', 10, 2);
+function custom_property_column($column, $post_id)
+{
+	// Status column
+	if ( 'complete' === $column ) {
+		$value = get_post_meta( $post_id, 'utvalt_objekt', true );
+		echo $value ? 'Utvald' : 'Icke-utvald';
+	}
+}

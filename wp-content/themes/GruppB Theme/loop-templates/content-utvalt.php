@@ -19,11 +19,13 @@
 			?>
 			<div class="card col-md p-0 mr-3">
 			<a href="<?php echo esc_url( get_the_permalink() ); ?>"><img class="card-img-top" src="<?php echo esc_url( $imgurl ); ?>" alt="Card image cap"></a>
-				<div class="card-body">
-				<a href="<?php echo esc_url( get_the_permalink() ); ?>">
+				<div class="card-body p-2">
+					<a href="<?php echo esc_url( get_the_permalink() ); ?>">
 					<h5 class="card-title"><?php echo esc_html( get_the_title() ); ?></h5></a>
-					<p class="card-text">Adress : <?php echo esc_html( get_field( 'address' ) ); ?></p>
-					<p class="card-text">Visning : <?php echo esc_html( get_field( 'visning' ) ); ?></p>
+					<p class="card-text-address m-0"><?php echo esc_html( get_field( 'address' ) ); ?></p>
+					<p class="card-text-left m-0"><?php echo esc_html( get_field( 'boarea' ) ) . ' m² '; ?></p>
+					<p class="card-text-right m-0"><?php echo esc_html( get_field( 'rooms' ) ) . ' rum '; ?></p>
+					<p class="card-text-price-utvalt m-0"><?php echo esc_html( number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></p>
 				</div>
 			</div>
 			<?php
