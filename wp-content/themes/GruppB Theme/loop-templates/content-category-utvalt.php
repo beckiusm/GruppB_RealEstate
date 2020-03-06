@@ -7,9 +7,13 @@ $loop = new WP_Query(
 		'meta_value'     => true,
 	)
 );
+//Convert string to date
+$time = strtotime( get_field( 'visning' ) );
+$newformat = date('Y-m-d',$time);
+
 if ( $loop->have_posts() ) :
 	?>
-	<div class="row mb-3">
+	<div class="row mb-3 d-flex justify-content-center">
 		<?php
 		/* Do WP_Loop if we get results? */
 		while ( $loop->have_posts() ) :
@@ -22,10 +26,11 @@ if ( $loop->have_posts() ) :
 				<div class="card-body p-2">
 					<a href="<?php echo esc_url( get_the_permalink() ); ?>">
 					<h5 class="card-title"><?php echo esc_html( get_the_title() ); ?></h5></a>
-					<p class="card-text-address m-0"><?php echo esc_html( get_field( 'address' ) ); ?></p>
-					<p class="card-text-left m-0"><?php echo esc_html( get_field( 'boarea' ) ) . ' m² '; ?></p>
-					<p class="card-text-right m-0"><?php echo esc_html( get_field( 'rooms' ) ) . ' rum '; ?></p>
-					<p class="card-text-price-utvalt m-0"><?php echo esc_html( number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></p>
+					<p class="card-text-address m-0"><?php echo esc_html ( "Adress: " . get_field( 'address' ) ); ?></p>
+					<p class="card-text-left m-0"><?php echo esc_html( "BoArea: " . get_field( 'boarea' ) ) . ' m² '; ?></p>
+					<p class="card-text-right m-0"><?php echo esc_html( "Rum: " . get_field( 'rooms' ) ) . ' rum '; ?></p>
+					<p class="card-text-right m-0"><?php echo esc_html( "Visningsdatum: " . $newformat ); ?></p>
+					<p class="card-text-price-utvalt m-0"><?php echo esc_html( "Utgångspris: " . number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></p>
 				</div>
 			</div>
 
