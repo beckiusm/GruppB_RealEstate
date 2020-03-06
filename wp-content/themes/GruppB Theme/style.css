@@ -109,3 +109,15 @@
     font-weight: 500;
     color: rgb(14, 201, 70);
 }
+
+#main-nav{
+    background-color: #FFCCE5 !important;
+}
+
+#main-nav a {
+    color: black !important;
+}
+
+.navbar-brand a {
+    font-size: 1.3em;
+}
