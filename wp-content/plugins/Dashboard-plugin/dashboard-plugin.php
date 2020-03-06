@@ -171,10 +171,14 @@ class Jonas_Widget extends WP_Widget {
             'orderby'        => 'meta_value',
             'order'         => 'ASC',
         ]);
+       
 
         while($loop->have_posts()) {
             $loop->the_post();
+            $time = strtotime( get_field( 'visning' ) );
+            $newformat = date('Y-m-d',$time);
             echo '<p>' . esc_html( 'Adress: ' . get_field('address') ) . '<br>';
+            echo  esc_html( 'Visningsdatum: ' . $newformat ) . '<br>';
             echo  esc_html( 'Boarea: ' . get_field('boarea') ) . ' m2 </p>';;
         }
 
