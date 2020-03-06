@@ -177,9 +177,10 @@ class Jonas_Widget extends WP_Widget {
             $loop->the_post();
             $time = strtotime( get_field( 'visning' ) );
             $newformat = date('Y-m-d',$time);
-            echo '<p>' . esc_html( 'Adress: ' . get_field('address') ) . '<br>';
+            //'<span class="card-category"><a href="' . esc_url( get_tag_link( $category->term_id ) ) . '"></a>' . esc_html( $comma ) . '</span>';
+            echo '<p><a href="' . get_the_permalink() . '">' . esc_html( 'Fastighet: ' . get_field('address') ) . '</a><br>';
             echo  esc_html( 'Visningsdatum: ' . $newformat ) . '<br>';
-            echo  esc_html( 'Boarea: ' . get_field('boarea') ) . ' m2 </p>';;
+            echo  esc_html( 'Boarea: ' . get_field('boarea') ) . ' m2 </p>';
         }
 
         echo '</div>';
