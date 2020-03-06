@@ -13,7 +13,7 @@ $newformat = date('Y-m-d',$time);
 
 if ( $loop->have_posts() ) :
 	?>
-	<div class="row mb-3 d-flex justify-content-center">
+	<div class="row mb-3">
 		<?php
 		/* Do WP_Loop if we get results? */
 		while ( $loop->have_posts() ) :
