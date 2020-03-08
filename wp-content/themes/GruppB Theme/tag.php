@@ -21,14 +21,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<div class="col-md content-area" id="primary">
 
 				<main class="site-main content" id="main">
-					<h1 class="display-4">Utvalda bostäder</h1>
+					<h1>Sökresultat</h1>
 					<?php
 					if ( have_posts() ) :
-						get_template_part( 'loop-templates/content', 'utvalt' );
-						?>
-						<h2 class="display-5">Övriga bostäder</h1>
-						<?php
-						get_template_part( 'loop-templates/content', 'other' );
+						get_template_part( 'loop-templates/content', 'search' );
 					else :
 						get_template_part( 'loop-templates/content', 'none' );
 					endif;
@@ -37,7 +33,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				</main><!-- #main -->
 			</div>
 			<!-- Do the right sidebar check -->
-			<?php get_search_form(); //get_template_part( 'sidebar-templates/sidebar-primary', 'right' ); ?>
+			<?php get_template_part( 'sidebar-templates/sidebar-primary', 'right' ); ?>
 
 		</div><!-- .row -->
 

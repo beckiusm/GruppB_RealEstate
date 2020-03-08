@@ -86,11 +86,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 					?>
 					<p class="property-p"> <?php the_content(); ?> </p>
 					<ul class="list-group">
-						<li class="list-group-item">Adress : <?php echo esc_html( get_field( 'Address' ) ); ?></li>
+						<li class="list-group-item">Adress : <?php echo esc_html( get_field( 'address' ) ); ?></li>
 						<li class="list-group-item">Visningsdatum <?php echo esc_html( get_field( 'visning' ) ); ?></li>
 						<li class="list-group-item">Antal Rum: <?php echo esc_html( get_field( 'rooms' ) ); ?> </li>
-						<li class="list-group-item">Boarea: <?php echo esc_html( get_field( 'boarea' ) ); ?> </li>
-						<li class="list-group-item">Utgångsbud: <?php echo esc_html( get_field( 'utgangsbud' ) ); ?></li>
+						<li class="list-group-item">Boarea: <?php echo esc_html( get_field( 'boarea' ) . ' m2' ); ?> </li>
+						<li class="list-group-item ">Utgångsbud: <?php echo esc_html( number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></li>
 					</ul>
 					<?php
 					// If comments are open or we have at least one comment, load up the comment template.
