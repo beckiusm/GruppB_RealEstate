@@ -15,7 +15,6 @@
 	// 	echo "no posts found";
 	// };
 
-
 	while ( $the_query->have_posts() ) :
 
 		$the_query->the_post();
