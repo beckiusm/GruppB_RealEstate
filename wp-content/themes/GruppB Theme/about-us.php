@@ -43,7 +43,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				?>
 			</div>
 			<!-- Do the right sidebar check -->
-			<?php get_template_part( 'sidebar-templates/sidebar-primary', 'right' ); ?>
+			<?php //get_template_part( 'sidebar-templates/sidebar-primary', 'right' ); ?>
 
 		</div><!-- .row -->
 
