@@ -26,30 +26,42 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 					<?php
 						
-						$categoryName = $_GET["category_name"];
-						$tagName = $_GET["tagName"];
+						if ($_GET["category_name"] === "") {
 
-						if ( $categoryName === "" && $tagName ) {
-
-							echo "the tag: " . $tagName;
+							echo "the tag: " . $_GET["tagName"];
 							
 							$the_query = new WP_Query( 'tag=' . $_GET["tagName"] );
 
-							include( locate_template( 'loop-templates/content-search.php', false, false ) ); //för att kunna använda mig av varibeln the_query i templaten
+							if ( $the_query->have_posts() ) {
+								echo '<ul>';
+								while ( $the_query->have_posts() ) {
+									$the_query->the_post();
+									echo '<li>' . get_the_title() . '</li>';
+								}
+								echo '</ul>';
+							} else {
+								echo "no posts found";
+							}
 
-						} elseif ($categoryName && !($tagName)) {
-							echo "the category: " . $categoryName;
-							$the_query = new WP_Query( 'category_name=' . $categoryName );
-							include( locate_template( 'loop-templates/content-search.php', false, false ) );
+						} elseif ( have_posts() ) {
+							echo "kategori valdes och det fanns poster";
 						} else {
-							echo "du måste fylla i antingen kategori eller tagg. I framtiden ska alla objekten listas här";
+							echo "funkade inte";
 						}
+						
 
+					// if ( have_posts() ) :
+					// 	echo "det finns poster eller tags";
+					// 	//get_template_part( 'loop-templates/content', 'search' );
+					// else :
+					// 	echo "det finns inga posters";
+					// 	//get_template_part( 'loop-templates/content', 'none' );
+					// endif;
 					?>
 				</main><!-- #main -->
 			</div>
 			<!-- Do the right sidebar check -->
-			<?php get_search_form(); //get_template_part( 'sidebar-templates/sidebar-primary', 'right' ); ?>
+			<?php //get_search_form(); //get_template_part( 'sidebar-templates/sidebar-primary', 'right' ); ?>
 
 		</div><!-- .row -->
 

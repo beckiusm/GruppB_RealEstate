@@ -1,17 +1,33 @@
 <div class="row mt-3">
 	<?php
 	// Do WP_Loop if we get results
-	get_search_query();
-	while ( have_posts() ) :
-		the_post();
+	//get_search_query(); //användes tidigare
+
+	//nedanstående kod funkade för att få ut ett objekt vid sökning med tag
+	// if ( $the_query->have_posts() ) {
+	// 	echo '<ul>';
+	// 	while ( $the_query->have_posts() ) {
+	// 		$the_query->the_post();
+	// 		echo '<li>' . get_the_title() . '</li>';
+	// 	}
+	// 	echo '</ul>';
+	// } else {
+	// 	echo "no posts found";
+	// };
+
+
+	while ( $the_query->have_posts() ) :
+
+		$the_query->the_post();
 		$imgid  = get_field( 'image' );
 		$imgurl = wp_get_attachment_image_src( $imgid, 'medium' )[0];
 		?>
+
 		<div class="card flex-row flex-wrap col-md-12 p-0 mb-3">
 			<a href="<?php echo esc_url( get_the_permalink() ); ?>"><img class="loop-image" src="<?php echo esc_url( $imgurl ); ?>" alt="Image of property"></a>
 			<div class="card-block px-2 pt-2">
 				<a href="<?php echo esc_url( get_the_permalink() ); ?>">
-					<!--<h4 class="card-title"><?php echo esc_html( get_the_title() ); ?></h4>-->
+					<h4 class="card-title"><?php echo esc_html( get_the_title() ); ?></h4>
 					<h4 class="card-title mb-1"><?php echo esc_html( get_field( 'address' ) ); ?></h4>
 					
 				</a>
@@ -34,6 +50,7 @@
 				<p class="card-text-price mt-3"><?php echo esc_html( number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></p>
 				<!--<p class="card-text-visning m-0"><?php echo esc_html( get_field( 'visning' ) ); ?></p>-->
 				<div class="card-tags">
+				
 				<?php
 				if ( has_tag() ) {
 					$tags    = get_the_tags();
@@ -51,6 +68,6 @@
 		<?php
 	endwhile;
 	wp_reset_postdata();
-	understrap_pagination();
+	// understrap_pagination();
 	?>
 </div>
