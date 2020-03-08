@@ -26,7 +26,12 @@ defined( 'ABSPATH' ) || exit;
 		?>
 		</select>
 	</div>
-	
+	<div class="form-group">
+	Min rum: <input type="text" name="min_room" placeholder="Alla rum">
+	Max rum:<input type="text" name="max_room" placeholder="Alla rum">
+	Min kr:<input type="text" name="min_price" placeholder="Alla priser">
+	Max kr: <input type="text" name="max_price" placeholder="Alla priser">
+	</div>
 	<?php
 	// generate list of tags
 	$tags = get_tags();
@@ -36,6 +41,7 @@ defined( 'ABSPATH' ) || exit;
 		echo '<label for="' . $tag->slug . '" class="form-check-label">' . $tag->name . "</label></div>";
 	}
 	?>
+
 	<input class="submit btn btn-primary" id="searchsubmit" name="submit" type="submit"
 	value="<?php esc_attr_e( 'Search', 'understrap' ); ?>">
 </form>
