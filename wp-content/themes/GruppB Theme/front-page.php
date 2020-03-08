@@ -26,7 +26,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					if ( have_posts() ) :
 						get_template_part( 'loop-templates/content', 'utvalt' );
 						?>
-						<h2 class="display-5">Övriga bostäder</h1>
+						<h2 class="display-4">Övriga bostäder</h2>
 						<?php
 						get_template_part( 'loop-templates/content', 'other' );
 					else :

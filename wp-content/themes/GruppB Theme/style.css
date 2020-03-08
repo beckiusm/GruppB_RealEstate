@@ -18,6 +18,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+h1, h2 {
+    font-size: 36px !important;
+}
+
 img.img-fluid {
     height: 100px !important;
     width: 154px !important;

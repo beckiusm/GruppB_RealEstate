@@ -26,7 +26,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					if ( have_posts() ) :
 						get_template_part( 'loop-templates/content', 'category-utvalt' );
 						?>
-					<h3 class="display-4 d-flex justify-content-center">Övriga objekt</h3>
+					<h2 class="display-4 d-flex justify-content-center">Övriga objekt</h2>
 						<?php
 						get_template_part( 'loop-templates/content', 'other' );
 					endif;
