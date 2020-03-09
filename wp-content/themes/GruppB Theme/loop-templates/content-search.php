@@ -6,6 +6,7 @@
 	if ( ! ( have_posts() ) ) :
 		?>
 		<div class="col-md-12 p-0 mb-3">
+		<img src="http://localhost/gruppb_realestate/wp-content/uploads/2020/03/search-sad.png" alt="Image of failed search">
 			<p>Tyvärr så hittade vi inte vad du sökte på! Men nedan är några förslag ifrån oss: </p>
 			<?php
 			$tags    = array_slice( get_tags(), 0, 10 );
@@ -16,6 +17,7 @@
 				$counter--;
 			endforeach
 			?>
+			
 		</div>
 		<?php
 	else :
