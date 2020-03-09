@@ -58,8 +58,8 @@ img.img-fluid {
     text-decoration: underline;
 }
 
-.container:focus {
-    border:none;
+:focus {
+    outline: none;
 }
 
 .card:hover {
@@ -74,14 +74,11 @@ img.img-fluid {
    
 }
 
-.card-categories a, .card-categories {
-    color: black;
+.card-categories a, .card-categories a{
+    color:cornflowerblue;
 }
 
-.card-tags {
-    position: absolute;
-    bottom: 0;
-}
+
 
 .card-tags a {
     color: rgb(223, 103, 22);
@@ -113,10 +110,21 @@ img.img-fluid {
 }
 
 .card-text-price-utvalt {
-    clear: both;
     font-size: 1.5em;
     font-weight: 500;
     color: rgb(14, 201, 70);
+}
+
+.card-block {
+    max-width: 50%;
+}
+
+.list-group-item {
+    border: none !important;
+}
+
+.bold-item {
+    font-weight: 500;
 }
 
 /* #main-nav{
@@ -138,4 +146,25 @@ img.img-fluid {
 
 #wrapper-footer-full {
     background: #92e89b !important;
+}
+
+@media only screen and (max-width: 1200px) {
+    .loop-image-a {
+        width: 40%;
+    }
+    .card-block {
+        max-width: 60%;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .loop-image-a {
+        width: 100%;
+    }
+    .card-block {
+        max-width: 100%;
+    }
+    .cat-image {
+        height: 300px;
+    }
 }
