@@ -44,7 +44,7 @@ function search_widget() {
 	);
 }
 
-add_action('widgets_init', 'search_widget');
+add_action( 'widgets_init', 'search_widget' );
 
 // advanced search functionality
 function advanced_search_query( $query ) {
@@ -55,7 +55,6 @@ function advanced_search_query( $query ) {
 		if ( isset( $_GET['taglist'] ) && is_array( $_GET['taglist'] ) ) {
 			$query->set( 'tag_slug__and', $_GET['taglist'] );
 		}
-
 		return $query;
 	}
 

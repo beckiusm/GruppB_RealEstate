@@ -1,7 +1,6 @@
 <div class="row mt-3">
 	<?php
 	// Do WP_Loop if we get results
-	
 	get_search_query();
 
 	while ( have_posts() ) :
