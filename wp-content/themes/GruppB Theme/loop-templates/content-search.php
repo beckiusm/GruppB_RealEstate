@@ -13,7 +13,7 @@
 			$counter     = count( $tags_search );
 			foreach ( $tags_search as $tag_search ) :
 				$comma = ( $counter > 1 ) ? ', ' : '';
-				echo '<span class="card-tag"><a href="' . esc_url( get_tag_link( $tag_search->term_id ) ) . '">' . esc_html( strtolower( $tag_search->name ) ) . '</a>' . esc_html( $comma ) . '</span>';
+				echo '<span class="card-tag"><a href="' . esc_url( get_tag_link( $tag_search->term_id ) ) . '">' . esc_html( $tag_search->name ) . '</a>' . esc_html( $comma ) . '</span>';
 				$counter--;
 			endforeach
 			?>
