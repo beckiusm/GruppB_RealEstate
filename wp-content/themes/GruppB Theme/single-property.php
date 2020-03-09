@@ -90,7 +90,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 							<li class="list-group-item py-0"><span class="bold-item">Adress:</span> <?php echo esc_html( get_field( 'address' ) ); ?></li>
 							<li class="list-group-item py-0"><span class="bold-item">Ort:</span> <?php echo esc_html( get_field( 'ort' ) ); ?></li>
 							<li class="list-group-item py-0"><span class="bold-item">Visningsdatum:</span> <?php echo esc_html( get_field( 'visning' ) ); ?></li>
-							<li class="list-group-item py-0"><span class="bold-item">Antal Rum:</span> <?php echo esc_html( get_field( 'rooms' ) ); ?> </li>
+							<li class="list-group-item py-0"><span class="bold-item">Antal rum:</span> <?php echo esc_html( get_field( 'rooms' ) ); ?> </li>
 							<li class="list-group-item py-0"><span class="bold-item">Boarea:</span> <?php echo esc_html( get_field( 'boarea' ) . ' m2' ); ?> </li>
 							<li class="list-group-item py-0"><span class="bold-item">Utgångsbud:</span> <?php echo esc_html( number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></li>
 						</ul>
