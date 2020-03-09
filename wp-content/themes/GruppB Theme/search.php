@@ -29,9 +29,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 					if ( isset( $_GET['category_name'] ) ) {
 						$category_name = sanitize_text_field( wp_unslash( $_GET['category_name'] ) );
 					}
-					if ( isset( $_GET['tag_name'] ) ) {
-						$tag_name = sanitize_text_field( wp_unslash( $_GET['tag_name'] ) );
-					}
 					if ( isset( $_GET['min_room'] ) ) {
 						$min_room = sanitize_text_field( wp_unslash( $_GET['min_room'] ) );
 					}
@@ -45,7 +42,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						$max_price = sanitize_text_field( wp_unslash( $_GET['max_price'] ) );
 					}
 					if ( isset( $_GET['s'] ) ) {
-						$max_price = sanitize_text_field( wp_unslash( $_GET['s'] ) );
+						$search_input = sanitize_text_field( wp_unslash( $_GET['s'] ) );
 					}
 					if ( '' === $max_room ) {
 						$max_room = 1000000000000;
@@ -54,7 +51,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 						$max_price = 1000000000000;
 					}
 					$args     = array(
-						'tag'           => $tag_name,
 						'category_name' => $category_name,
 						's'             => $search_input,
 						'paged'         => $paged,

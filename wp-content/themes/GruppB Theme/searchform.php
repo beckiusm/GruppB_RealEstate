@@ -33,7 +33,7 @@ defined( 'ABSPATH' ) || exit;
 	$tags = get_tags();
 	foreach ( $tags as $tag ) {
 		echo '<div class="form-check">';
-		echo '<input id="' . $tag->slug . '" type="checkbox" class="form-check-input" name="tag_name" value="' . $tag->slug . '" />'; //before it was name="taglist[]"
+		echo '<input id="' . $tag->slug . '" type="checkbox" class="form-check-input" name="taglist[]" value="' . $tag->slug . '" />'; //before it was name="taglist[]"
 		echo '<label for="' . $tag->slug . '" class="form-check-label">' . ucfirst($tag->name) . "</label></div>";
 	}
 	?>
