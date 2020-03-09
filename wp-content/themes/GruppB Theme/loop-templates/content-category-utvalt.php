@@ -17,7 +17,7 @@ if ( $loop->have_posts() ) :
 		while ( $loop->have_posts() ) :
 			$loop->the_post();
 			$time   = strtotime( get_field( 'visning' ) );
-			$date   = strftime( '%#d %B, %Y', $time );
+			$date   = strftime( '%e %B, %Y', $time );
 			$imgid  = get_field( 'image' );
 			$imgurl = wp_get_attachment_image_src( $imgid, 'large' )[0];
 			?>
