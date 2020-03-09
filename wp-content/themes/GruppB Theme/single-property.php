@@ -84,14 +84,18 @@ $container = get_theme_mod( 'understrap_container_type' );
 						<?php
 					endif;
 					?>
-					<p class="property-p"> <?php the_content(); ?> </p>
-					<ul class="list-group">
-						<li class="list-group-item">Adress : <?php echo esc_html( get_field( 'address' ) ); ?></li>
-						<li class="list-group-item">Visningsdatum <?php echo esc_html( get_field( 'visning' ) ); ?></li>
-						<li class="list-group-item">Antal Rum: <?php echo esc_html( get_field( 'rooms' ) ); ?> </li>
-						<li class="list-group-item">Boarea: <?php echo esc_html( get_field( 'boarea' ) . ' m2' ); ?> </li>
-						<li class="list-group-item ">Utgångsbud: <?php echo esc_html( number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></li>
-					</ul>
+					<div class="row mb-3 mt-3">
+						<div class="property-p col-md-9"> <?php echo esc_html( the_content() ); ?> </div>
+						<ul class="list-group col-md-3">
+							<li class="list-group-item py-0"><span class="bold-item">Adress:</span> <?php echo esc_html( get_field( 'address' ) ); ?></li>
+							<li class="list-group-item py-0"><span class="bold-item">Ort:</span> <?php echo esc_html( get_field( 'ort' ) ); ?></li>
+							<li class="list-group-item py-0"><span class="bold-item">Visningsdatum:</span> <?php echo esc_html( get_field( 'visning' ) ); ?></li>
+							<li class="list-group-item py-0"><span class="bold-item">Antal rum:</span> <?php echo esc_html( get_field( 'rooms' ) ); ?> </li>
+							<li class="list-group-item py-0"><span class="bold-item">Boarea:</span> <?php echo esc_html( get_field( 'boarea' ) . ' m2' ); ?> </li>
+							<li class="list-group-item py-0"><span class="bold-item">Utgångsbud:</span> <?php echo esc_html( number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></li>
+						</ul>
+					</div>
+					
 					<?php
 					// If comments are open or we have at least one comment, load up the comment template.
 					if ( comments_open() || get_comments_number() ) :

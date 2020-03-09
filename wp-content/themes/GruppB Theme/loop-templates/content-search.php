@@ -1,7 +1,7 @@
 <div class="row mt-3">
 	<?php
 	// Do WP_Loop if we get results
-	//get_search_query(); //användes tidigare
+	// get_search_query(); //användes tidigare
 
 	while ( $the_query->have_posts() ) :
 		$the_query->the_post();
@@ -11,12 +11,10 @@
 		?>
 
 		<div class="card flex-row flex-wrap col-md-12 p-0 mb-3">
-			<a href="<?php echo esc_url( get_the_permalink() ); ?>"><img class="loop-image" src="<?php echo esc_url( $imgurl ); ?>" alt="Image of property"></a>
+			<a class="loop-image-a" href="<?php echo esc_url( get_the_permalink() ); ?>"><img class="loop-image" src="<?php echo esc_url( $imgurl ); ?>" alt="Image of property"></a>
 			<div class="card-block px-2 pt-2">
 				<a href="<?php echo esc_url( get_the_permalink() ); ?>">
-					<h4 class="card-title"><?php echo esc_html( get_the_title() ); ?></h4>
 					<h4 class="card-title mb-1"><?php echo esc_html( get_field( 'address' ) ); ?></h4>
-					
 				</a>
 				<div class="card-categories mb-2">
 				<?php
@@ -25,7 +23,7 @@
 					$counter_cat = count( $categories );
 					foreach ( $categories as $category ) {
 						$comma = ( $counter_cat > 1 ) ? ', ' : '';
-						echo '<span class="card-category"><a href="' . esc_url( get_tag_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a>' . esc_html( $comma ) . '</span>';
+						echo '<span class="card-category"><a href="' . esc_url( get_tag_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a>' . esc_html( $comma ) . ' - ' . esc_html( get_field( 'ort' ) ) . '</span>';
 						$counter_cat--;
 					}
 				}
@@ -34,10 +32,9 @@
 				<!--<p class="card-text-address m-0"><?php echo esc_html( get_field( 'address' ) ); ?></p>-->
 				<p class="card-text-area m-0"><?php echo esc_html( get_field( 'boarea' ) ) . ' m² '; ?></p>
 				<p class="card-text-rooms m-0"><?php echo esc_html( get_field( 'rooms' ) ) . ' rum '; ?></p>
-				<p class="card-text-price mt-3"><?php echo esc_html( number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></p>
+				<p class="card-text-price mt-2 mb-0"><?php echo esc_html( number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></p>
 				<!--<p class="card-text-visning m-0"><?php echo esc_html( get_field( 'visning' ) ); ?></p>-->
 				<div class="card-tags">
-				
 				<?php
 				if ( has_tag() ) {
 					$tags    = get_the_tags();
