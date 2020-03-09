@@ -25,52 +25,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<h1>Sökresultat</h1>
 
 					<?php
-						
-						$categoryName = $_GET["category_name"];
-						$tagName = $_GET["tagName"];
-						$searchInput = filter_input(INPUT_GET, 's', FILTER_DEFAULT);
-
-						// $minRoom = $_GET['min_room'] ?? 0;
-			
-						$minRoom = sanitize_text_field( wp_unslash( $_GET['min_room'] ) );;
-						$maxRoom = sanitize_text_field( wp_unslash( $_GET['max_room'] ) );;
-						$minPrice = sanitize_text_field( wp_unslash( $_GET['min_price'] ) );;
-						$maxPrice = sanitize_text_field( wp_unslash( $_GET['max_price'] ) );;
-
-						if (isset($minRoom) || isset($maxRoom) || isset($minPrice) || isset($maxPrice)) {
-							if ($maxRoom == '') {
-								$maxRoom = 1000000000000;
-							}
-							if($maxPrice == '') {
-								$maxPrice = 1000000000000;
-							}
-						}
-
-						$args = array(
-							'tag' => $tagName,
-							'category_name' => $categoryName,
-							's' => $searchInput,
-							'meta_query' => array(
-								'relation' => 'AND',
-								array(
-									'key' => 'rooms',
-									'value' => array($minRoom, $maxRoom),
-									'type' => 'numeric',
-									'compare' => 'BETWEEN'
-								),
-								array(
-									'key' => 'utgangsbud',
-									'value' => array($minPrice, $maxPrice),
-									'type' => 'numeric',
-									'compare' => 'BETWEEN'
-								)
-							)
-						);
-
-						$the_query = new WP_Query( $args );
-						
-
-						include( locate_template( 'loop-templates/content-search.php', false, false ) );
 
 					if ( isset( $_GET['category_name'] ) ) {
 						$category_name = sanitize_text_field( wp_unslash( $_GET['category_name'] ) );
