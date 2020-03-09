@@ -33,41 +33,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 						<div class="page-content">
 
-                            <img src="http://localhost/gruppb_realestate/wp-content/uploads/2020/03/404.png" alt="Smiley face">
-							<?php //get_search_form(); ?>
-							<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below?', 'understrap' ); ?></p>
-
-							<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
-
-							<?php if ( understrap_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
-
-								<div class="widget widget_categories">
-
-									<h2 class="widget-title"><?php esc_html_e( 'All Categories', 'understrap' ); ?></h2>
-
-									<ul>
-										<?php   
-										wp_list_categories(
-											array(
-												'orderby'    => 'count',
-												'order'      => 'DESC',
-												'show_count' => 1,
-												'title_li'   => '',
-												'number'     => 10,
-											)
-										);
-										?>
-									</ul>
-
-								</div><!-- .widget -->
-
-							<?php endif; ?>
-
-							<?php
-
-							/* translators: %1$s: smiley */
-							the_widget( 'WP_Widget_Tag_Cloud' );
-							?>
+                            <img id="error_img" src="http://localhost/gruppb_realestate/wp-content/uploads/2020/03/404.png" alt="Smiley face">
 
 						</div><!-- .page-content -->
 
