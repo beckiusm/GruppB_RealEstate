@@ -55,6 +55,13 @@ img.img-fluid {
     object-fit: cover;
 }
 
+.btn-primary {
+    color: black !important;
+    background-color: #92e89b !important;
+    border-color: #92e89b !important;
+    width: 100%;
+}
+
 /* #main-menu a {
     color: white;
 } */

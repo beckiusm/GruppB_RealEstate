@@ -38,9 +38,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 								foreach ( $images as $image ) {
 									if ( $counter === 0 ) {
 										?>
-										<li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $counter; ?>" class="active"></li>
+										<li data-target="#carouselExampleIndicators" data-slide-to="<?php echo esc_html ($counter ); ?>" class="active"></li>
 									<?php } else { ?>
-										<li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $counter; ?>"></li>
+										<li data-target="#carouselExampleIndicators" data-slide-to="<?php echo esc_html ($counter ); ?>"></li>
 										<?php
 									}
 									$counter++;
@@ -108,8 +108,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 				?>
 
 			</main><!-- #main -->
-			<!-- Do the primary sidebar check -->
-			<?php get_template_part( 'sidebar-templates/sidebar', 'primary' ); ?>
 
 			<!--Denna del krävs för att sidebaren ska visa det som läggs till i widgets menyn -->
 			<?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('sidebar-primary') ) ?>

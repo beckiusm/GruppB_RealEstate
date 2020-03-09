@@ -48,5 +48,5 @@ defined( 'ABSPATH' ) || exit;
 		<input class="form-control" type="text" name="max_price" id="max_price" placeholder="Max pris">
 	</div>
 	<input class="submit btn btn-primary" id="searchsubmit" name="submit" type="submit"
-	value="<?php esc_attr_e( 'Search', 'understrap' ); ?>">
+	value="<?php esc_attr_e( 'Sök', 'understrap' ); ?>">
 </form>
