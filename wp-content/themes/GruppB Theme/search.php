@@ -35,7 +35,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						$minRoom = sanitize_text_field( wp_unslash( $_GET['min_room'] ) );;
 						$maxRoom = sanitize_text_field( wp_unslash( $_GET['max_room'] ) );;
 						$minPrice = sanitize_text_field( wp_unslash( $_GET['min_price'] ) );;
-						$maxPrice = sanitize_text_field( wp_unslash( $_GET['price'] ) );;
+						$maxPrice = sanitize_text_field( wp_unslash( $_GET['max_price'] ) );;
 
 						if (isset($minRoom) || isset($maxRoom) || isset($minPrice) || isset($maxPrice)) {
 							if ($maxRoom == '') {
