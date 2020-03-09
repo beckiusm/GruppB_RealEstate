@@ -30,24 +30,47 @@ $container = get_theme_mod( 'understrap_container_type' );
 						$tagName = $_GET["tagName"];
 						$searchInput = filter_input(INPUT_GET, 's', FILTER_DEFAULT);
 
+						// $minRoom = $_GET['min_room'] ?? 0;
+
 						$minRoom = $_GET['min_room'];
 						$maxRoom = $_GET['max_room'];
 						$minPrice = $_GET['min_price'];
-						$macPrice = $_GET['max_price'];
-
-						echo "the category: " . $categoryName . " the tag: " . $tagName . " the search: " . $searchInput;
-						// echo "the tag: " . $tagName;
+						$maxPrice = $_GET['max_price'];
+						
+						if (isset($minRoom) || isset($maxRoom) || isset($minPrice) || isset($maxPrice)) {
+							if ($maxRoom == '') {
+								$maxRoom = 1000000000000;
+							}
+							if($maxPrice == '') {
+								$maxPrice = 1000000000000;
+							}
+						}
 
 						$args = array(
 							'tag' => $tagName,
 							'category_name' => $categoryName,
-							's' => $searchInput
+							's' => $searchInput,
+							'meta_query' => array(
+								'relation' => 'AND',
+								array(
+									'key' => 'rooms',
+									'value' => array($minRoom, $maxRoom),
+									'type' => 'numeric',
+									'compare' => 'BETWEEN'
+								),
+								array(
+									'key' => 'utgangsbud',
+									'value' => array($minPrice, $maxPrice),
+									'type' => 'numeric',
+									'compare' => 'BETWEEN'
+								)
+							)
 						);
 
 						$the_query = new WP_Query( $args );
 						
 
-						include( locate_template( 'loop-templates/content-search.php', false, false ) ); //för att kunna använda mig av varibeln the_query i templaten
+						include( locate_template( 'loop-templates/content-search.php', false, false ) );
 
 					?>
 				</main><!-- #main -->

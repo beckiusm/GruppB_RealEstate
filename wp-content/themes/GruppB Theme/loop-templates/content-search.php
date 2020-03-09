@@ -55,6 +55,6 @@
 		<?php
 	endwhile;
 	wp_reset_postdata();
-	// understrap_pagination();
+	understrap_pagination();
 	?>
 </div>
