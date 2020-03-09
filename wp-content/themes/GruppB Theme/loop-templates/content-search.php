@@ -3,23 +3,29 @@
 	// Do WP_Loop if we get results
 	get_search_query();
 
-	if (!(have_posts())) {
-		echo "<p>" . "Tyvärr så hittade vi inte vad du sökte på! Men nedan är några förslag ifrån oss" . "</p><br>";
-		echo "<ul class='list-group list-group-flush'>";
-
-		$tags = get_tags();
-		foreach ( array_slice($tags, 0, 10) as $tag ) {
-			echo '<li class="list-group-item">' . str_replace("-", " ", $tag->slug) . '</li>';
-		}
-		echo '</ul>';
-	} else {
+	if ( ! ( have_posts() ) ) :
+		?>
+		<div class="col-md-12 p-0 mb-3">
+			<p>Tyvärr så hittade vi inte vad du sökte på! Men nedan är några förslag ifrån oss: </p>
+			<?php
+			$tags    = array_slice( get_tags(), 0, 10 );
+			$counter = count( $tags );
+			foreach ( $tags as $tag ) :
+				$comma = ( $counter > 1 ) ? ', ' : '';
+				echo '<span class="card-tag"><a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . esc_html( strtolower( $tag->name ) ) . '</a>' . esc_html( $comma ) . '</span>';
+				$counter--;
+			endforeach
+			?>
+		</div>
+		<?php
+	else :
 		while ( have_posts() ) :
 			the_post();
 			$imgid  = get_field( 'image' );
 			$imgurl = wp_get_attachment_image_src( $imgid, 'medium' )[0];
 			?>
 	
-			<div class="card flex-row flex-wrap col-md-12 p-0 mb-3">
+			<div class="card flex-row flex-wrap col-md-12 mb-3">
 				<a class="loop-image-a" href="<?php echo esc_url( get_the_permalink() ); ?>"><img class="loop-image" src="<?php echo esc_url( $imgurl ); ?>" alt="Image of property"></a>
 				<div class="card-block px-2 pt-2">
 					<a href="<?php echo esc_url( get_the_permalink() ); ?>">
@@ -60,7 +66,7 @@
 			</div>
 			<?php
 		endwhile;
-	}
+	endif;
 	wp_reset_postdata();
 	understrap_pagination();
 	?>
