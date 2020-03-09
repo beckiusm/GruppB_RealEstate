@@ -26,18 +26,19 @@ defined( 'ABSPATH' ) || exit;
 		}
 		?>
 		</select>
+		<button class="btn btn-primary" id="showBtn">Utöka filter</button>
 	</div>
 	
 	<?php
 	// generate list of tags
 	$tags = get_tags();
 	foreach ( $tags as $tag ) {
-		echo '<div class="form-check">';
-		echo '<input id="' . $tag->slug . '" type="checkbox" class="form-check-input" name="tagName" value="' . $tag->slug . '" />'; //before it was name="taglist[]"
+		echo '<div class="form-check hide">';
+		echo '<input id="' . $tag->slug . '" type="checkbox" class="form-check-input" name="tagName" value="' . $tag->slug . '" />';
 		echo '<label for="' . $tag->slug . '" class="form-check-label">' . ucfirst($tag->name) . "</label></div>";
 	}
 	?>
-	<div class="form-group">
+	<div class="form-group hide">
 	Min rum: <input type="text" name="min_room" placeholder="Alla rum">
 	Max rum:<input type="text" name="max_room" placeholder="Alla rum">
 	Min kr:<input type="text" name="min_price" placeholder="Alla priser">
