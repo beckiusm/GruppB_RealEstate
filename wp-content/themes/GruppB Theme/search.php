@@ -31,12 +31,12 @@ $container = get_theme_mod( 'understrap_container_type' );
 						$searchInput = filter_input(INPUT_GET, 's', FILTER_DEFAULT);
 
 						// $minRoom = $_GET['min_room'] ?? 0;
+			
+						$minRoom = sanitize_text_field( wp_unslash( $_GET['min_room'] ) );;
+						$maxRoom = sanitize_text_field( wp_unslash( $_GET['max_room'] ) );;
+						$minPrice = sanitize_text_field( wp_unslash( $_GET['min_price'] ) );;
+						$maxPrice = sanitize_text_field( wp_unslash( $_GET['price'] ) );;
 
-						$minRoom = $_GET['min_room'];
-						$maxRoom = $_GET['max_room'];
-						$minPrice = $_GET['min_price'];
-						$maxPrice = $_GET['max_price'];
-						
 						if (isset($minRoom) || isset($maxRoom) || isset($minPrice) || isset($maxPrice)) {
 							if ($maxRoom == '') {
 								$maxRoom = 1000000000000;
