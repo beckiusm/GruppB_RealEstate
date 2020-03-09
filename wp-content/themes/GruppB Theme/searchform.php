@@ -26,7 +26,6 @@ defined( 'ABSPATH' ) || exit;
 		}
 		?>
 		</select>
-		<button class="btn btn-primary" id="showBtn">Utöka filter</button>
 	</div>
 	
 	<?php
