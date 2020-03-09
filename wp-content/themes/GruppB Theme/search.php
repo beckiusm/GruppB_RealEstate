@@ -28,37 +28,26 @@ $container = get_theme_mod( 'understrap_container_type' );
 						
 						$categoryName = $_GET["category_name"];
 						$tagName = $_GET["tagName"];
+						$searchInput = filter_input(INPUT_GET, 's', FILTER_DEFAULT);
 
-						echo "the category: " . $categoryName . " the tag: " . $tagName;
+						$minRoom = $_GET['min_room'];
+						$maxRoom = $_GET['max_room'];
+						$minPrice = $_GET['min_price'];
+						$macPrice = $_GET['max_price'];
+
+						echo "the category: " . $categoryName . " the tag: " . $tagName . " the search: " . $searchInput;
 						// echo "the tag: " . $tagName;
 
 						$args = array(
 							'tag' => $tagName,
-							'category_name' => $categoryName
+							'category_name' => $categoryName,
+							's' => $searchInput
 						);
-							
+
 						$the_query = new WP_Query( $args );
+						
 
 						include( locate_template( 'loop-templates/content-search.php', false, false ) ); //för att kunna använda mig av varibeln the_query i templaten
-
-						// $categoryName = $_GET["category_name"];
-						// $tagName = $_GET["tagName"];
-
-						// if ( $categoryName === "" && $tagName ) {
-
-						// 	echo "the tag: " . $tagName;
-							
-						// 	$the_query = new WP_Query( 'tag=' . $_GET["tagName"] );
-
-						// 	include( locate_template( 'loop-templates/content-search.php', false, false ) ); //för att kunna använda mig av varibeln the_query i templaten
-
-						// } elseif ($categoryName && !($tagName)) {
-						// 	echo "the category: " . $categoryName;
-						// 	$the_query = new WP_Query( 'category_name=' . $categoryName );
-						// 	include( locate_template( 'loop-templates/content-search.php', false, false ) );
-						// } else {
-						// 	echo "du måste fylla i antingen kategori eller tagg. I framtiden ska alla objekten listas här";
-						// }
 
 					?>
 				</main><!-- #main -->

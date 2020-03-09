@@ -3,21 +3,9 @@
 	// Do WP_Loop if we get results
 	// get_search_query(); //användes tidigare
 
-	// nedanstående kod funkade för att få ut ett objekt vid sökning med tag
-	// if ( $the_query->have_posts() ) {
-	// echo '<ul>';
-	// while ( $the_query->have_posts() ) {
-	// $the_query->the_post();
-	// echo '<li>' . get_the_title() . '</li>';
-	// }
-	// echo '</ul>';
-	// } else {
-	// echo "no posts found";
-	// };
-
 	while ( $the_query->have_posts() ) :
-
 		$the_query->the_post();
+		
 		$imgid  = get_field( 'image' );
 		$imgurl = wp_get_attachment_image_src( $imgid, 'medium' )[0];
 		?>
