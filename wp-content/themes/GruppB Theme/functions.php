@@ -44,6 +44,8 @@ function search_widget() {
 	);
 }
 
+add_action('widgets_init', 'search_widget');
+
 // advanced search functionality
 function advanced_search_query( $query ) {
 

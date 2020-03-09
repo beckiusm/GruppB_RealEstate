@@ -1,11 +1,11 @@
 <div class="row mt-3">
 	<?php
 	// Do WP_Loop if we get results
-	// get_search_query(); //användes tidigare
+	
+	get_search_query();
 
-	while ( $the_query->have_posts() ) :
-		$the_query->the_post();
-		
+	while ( have_posts() ) :
+		the_post();
 		$imgid  = get_field( 'image' );
 		$imgurl = wp_get_attachment_image_src( $imgid, 'medium' )[0];
 		?>

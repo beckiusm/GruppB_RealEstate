@@ -1,4 +1,10 @@
+
+
+    <?php //dynamic_sidebar( 'sidebar-primary' ); ?>
+    <?php get_search_form(); ?>
+
 <?php 
-// get_search_form(); relevansii
-echo do_shortcode('[searchandfilter fields="search,category,post_tag"]');
+
+
+//echo do_shortcode('[searchandfilter fields="search,category,post_tag"]');
 
