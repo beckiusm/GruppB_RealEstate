@@ -9,11 +9,11 @@
 		<img src="http://localhost/gruppb_realestate/wp-content/uploads/2020/03/search-sad.png" alt="Image of failed search">
 			<p>Tyvärr så hittade vi inte vad du sökte på! Men nedan är några förslag ifrån oss: </p>
 			<?php
-			$tags    = array_slice( get_tags(), 0, 10 );
-			$counter = count( $tags );
-			foreach ( $tags as $tag ) :
+			$tags_search = array_slice( get_tags(), 0, 10 );
+			$counter     = count( $tags_search );
+			foreach ( $tags_search as $tag_search ) :
 				$comma = ( $counter > 1 ) ? ', ' : '';
-				echo '<span class="card-tag"><a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . esc_html( strtolower( $tag->name ) ) . '</a>' . esc_html( $comma ) . '</span>';
+				echo '<span class="card-tag"><a href="' . esc_url( get_tag_link( $tag_search->term_id ) ) . '">' . esc_html( strtolower( $tag_search->name ) ) . '</a>' . esc_html( $comma ) . '</span>';
 				$counter--;
 			endforeach
 			?>
@@ -27,7 +27,7 @@
 			$imgurl = wp_get_attachment_image_src( $imgid, 'medium' )[0];
 			?>
 	
-			<div class="card flex-row flex-wrap col-md-12 mb-3">
+			<div class="card flex-row flex-wrap col-md-12 p-0 mb-3">
 				<a class="loop-image-a" href="<?php echo esc_url( get_the_permalink() ); ?>"><img class="loop-image" src="<?php echo esc_url( $imgurl ); ?>" alt="Image of property"></a>
 				<div class="card-block px-2 pt-2">
 					<a href="<?php echo esc_url( get_the_permalink() ); ?>">
@@ -54,11 +54,11 @@
 					<div class="card-tags">
 					<?php
 					if ( has_tag() ) {
-						$tags    = get_the_tags();
-						$counter = count( $tags );
-						foreach ( $tags as $tag ) {
+						$tags_card = get_the_tags();
+						$counter   = count( $tags_card );
+						foreach ( $tags_card as $tag_card ) {
 							$comma = ( $counter > 1 ) ? ', ' : '';
-							echo '<span class="card-tag"><a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . esc_html( strtolower( $tag->name ) ) . '</a>' . esc_html( $comma ) . '</span>';
+							echo '<span class="card-tag"><a href="' . esc_url( get_tag_link( $tag_card->term_id ) ) . '">' . esc_html( $tag_card->name ) . '</a>' . esc_html( $comma ) . '</span>';
 							$counter--;
 						}
 					}

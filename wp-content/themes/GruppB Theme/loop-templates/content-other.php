@@ -45,11 +45,11 @@ $wp_query = new WP_Query(
 				<div class="card-tags">
 				<?php
 				if ( has_tag() ) {
-					$tags    = get_the_tags();
-					$counter = count( $tags );
-					foreach ( $tags as $tag ) {
+					$tags_card = get_the_tags();
+					$counter   = count( $tags_card );
+					foreach ( $tags_card as $tag_card ) {
 						$comma = ( $counter > 1 ) ? ', ' : '';
-						echo '<span class="card-tag"><a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . esc_html( strtolower( $tag->name ) ) . '</a>' . esc_html( $comma ) . '</span>';
+						echo '<span class="card-tag"><a href="' . esc_url( get_tag_link( $tag_card->term_id ) ) . '">' . esc_html( $tag_card->name ) . '</a>' . esc_html( $comma ) . '</span>';
 						$counter--;
 					}
 				}
