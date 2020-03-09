@@ -33,7 +33,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 						<div class="page-content">
 
-                            <img id="error_img" src="http://localhost/gruppb_realestate/wp-content/uploads/2020/03/404.png" alt="Smiley face">
+                            <img id="error_img" class="mb-3" src="http://localhost/gruppb_realestate/wp-content/uploads/2020/03/404.png" alt="Smiley face">
 
 						</div><!-- .page-content -->
 
