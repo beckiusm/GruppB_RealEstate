@@ -55,6 +55,7 @@ function wporg_dashboard_widget_render()
             'post_type' => 'property',
             'meta_key' => 'utvalt_objekt',
             'meta_value' => 0,
+            'posts_per_page' => 1000
         )
     );
     //var_dump($wp_query);
