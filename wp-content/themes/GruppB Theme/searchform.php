@@ -37,6 +37,18 @@ defined( 'ABSPATH' ) || exit;
 		echo '<label for="' . $tag->slug . '" class="form-check-label">' . ucfirst($tag->name) . "</label></div>";
 	}
 	?>
+	<div class="form-check">
+		<input id="rooms1" type="checkbox" class="form-check-input">
+		<label for="rooms1" class="form-check-label">1 rum</label>
+	</div>
+	<div class="form-check">
+		<input id="rooms2" type="checkbox" class="form-check-input">
+		<label for="rooms2" class="form-check-label">2 rum</label>
+	</div>
+	<div class="form-check">
+		<input id="rooms3" type="checkbox" class="form-check-input">
+		<label for="rooms3" class="form-check-label">3 rum</label>
+	</div>
 	<input class="submit btn btn-primary" id="searchsubmit" name="submit" type="submit"
 	value="<?php esc_attr_e( 'Search', 'understrap' ); ?>">
 </form>
