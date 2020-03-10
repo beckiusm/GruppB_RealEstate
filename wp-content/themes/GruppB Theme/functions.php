@@ -31,6 +31,9 @@ function query_post_type( $query ) {
 }
 add_filter( 'pre_get_posts', 'query_post_type' );
 
+/**
+ * Add our custom sidebar to the widget-area by using the hook 'widgets_init'
+ */
 function search_widget() {
 	register_sidebar(
 		array(
@@ -43,10 +46,11 @@ function search_widget() {
 		)
 	);
 }
-
 add_action( 'widgets_init', 'search_widget' );
 
-// advanced search functionality
+/**
+ * 
+ */
 function advanced_search_query( $query ) {
 
 	if ( $query->is_search() ) {
@@ -59,7 +63,6 @@ function advanced_search_query( $query ) {
 	}
 
 }
-
 add_action( 'pre_get_posts', 'advanced_search_query', 1000 );
 
 function cptui_register_my_cpts_property() {

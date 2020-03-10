@@ -28,6 +28,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 						?>
 						<h2 class="display-4">Övriga bostäder</h2>
 						<?php
+						/**
+						 * Get template parts for loops.
+						 */
 						get_template_part( 'loop-templates/content', 'other' );
 					else :
 						get_template_part( 'loop-templates/content', 'none' );

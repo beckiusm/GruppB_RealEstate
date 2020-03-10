@@ -23,6 +23,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<main class="site-main content" id="main">
 					<h1>Tag: <?php echo esc_html( single_tag_title() ); ?></h1>
 					<?php
+					/**
+					 * Get loop for tags
+					 */
 					if ( have_posts() ) :
 						get_template_part( 'loop-templates/content', 'tag' );
 					else :

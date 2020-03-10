@@ -1,5 +1,10 @@
 <div class="row mt-3">
 	<?php
+	/**
+	 * This loop is just copy of content-search.php
+	 * It's if the user clicks directly on the tags below each property.
+	 * Then Wordpress looks for a file called tag.php
+	 */
 	while ( have_posts() ) :
 		the_post();
 		$imgid  = get_field( 'image' );

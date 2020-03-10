@@ -11,7 +11,7 @@
 */
 
 /**
- * Add a widget to the dashboard.
+ * Adds a widget to the dashboard.
  *
  * This function is hooked into the 'wp_dashboard_setup' action below.
  */
@@ -28,8 +28,7 @@ add_action( 'wp_dashboard_setup', 'wporg_add_dashboard_widgets' );
  * Create the function to output the content of our Dashboard Widget.
  */
 function wporg_dashboard_widget_render() {
-	// Display whatever you want to show.
-
+	// Display which properties is 'utvalda' and the ones who aint.
 	?>
 	<h1>Utvalda fastigheter</h1>
 	<?php
@@ -47,7 +46,7 @@ function wporg_dashboard_widget_render() {
 		echo '<a href=' . get_the_permalink() . '> View Property </a>';
 		echo '<br>';
 	}
-
+	//Output other properties
 	$wp_query = new WP_Query(
 		array(
 			'post_type'      => 'property',
@@ -56,8 +55,8 @@ function wporg_dashboard_widget_render() {
 			'posts_per_page' => 1000,
 		)
 	);
-	// var_dump($wp_query);
 	echo '<br>';
+
 	?>
 	<h1>Övriga fastigheter</h1>
 	<?php
@@ -71,7 +70,9 @@ function wporg_dashboard_widget_render() {
 }
 
 
+
 add_action( 'restrict_manage_posts', 'property_filter_posts_by_complete' );
+
 function property_filter_posts_by_complete() {
 	$type = $_GET['post_type'] ?? 'property';
 	// Only add filter to post type you want.
@@ -98,6 +99,10 @@ function property_filter_posts_by_complete() {
 		<?php
 	}
 }
+
+/*
+*	Adds filter to the 'edit-property page', displays filter options on propertys.
+*/
 add_filter( 'parse_query', 'property_filter' );
 function property_filter( $query ) {
 	global $pagenow;
@@ -128,6 +133,9 @@ function custom_property_column( $column, $post_id ) {
 	}
 }
 
+/**
+ * A custom widget that displays upcoming visiting times.
+ */
 class Jonas_Widget extends WP_Widget {
 
 	function __construct() {

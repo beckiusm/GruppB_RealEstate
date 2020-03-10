@@ -25,7 +25,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<h1>Sökresultat</h1>
 
 					<?php
-
+					/**
+					 * Sanitizes all the inputs, security reasons.
+					 */
 					if ( isset( $_GET['category_name'] ) ) {
 						$category_name = sanitize_text_field( wp_unslash( $_GET['category_name'] ) );
 					}
@@ -44,12 +46,18 @@ $container = get_theme_mod( 'understrap_container_type' );
 					if ( isset( $_GET['s'] ) ) {
 						$search_input = sanitize_text_field( wp_unslash( $_GET['s'] ) );
 					}
+					/**
+					 * Makes sure that all propertys will be shown if no maxes are decided.
+					 */
 					if ( '' === $max_room ) {
 						$max_room = 1000000000000;
 					}
 					if ( '' === $max_price ) {
 						$max_price = 1000000000000;
 					}
+					/**
+					 * 
+					 */
 					$args     = array(
 						'category_name' => $category_name,
 						's'             => $search_input,
