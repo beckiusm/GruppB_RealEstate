@@ -1,20 +1,20 @@
 <?php
 
 // Exit if accessed directly.
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$container = get_theme_mod('understrap_container_type');
+$container = get_theme_mod( 'understrap_container_type' );
 ?>
 
-<?php if (is_front_page() && is_home()) : ?>
-	<?php get_template_part('global-templates/hero'); ?>
+<?php if ( is_front_page() && is_home() ) : ?>
+	<?php get_template_part( 'global-templates/hero' ); ?>
 <?php endif; ?>
 
 <div class="wrapper container-fluid" id="index-wrapper">
 
-	<div class="<?php echo esc_attr($container); ?>" id="content" tabindex="-1">
+	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
 		<div class="row">
 
@@ -23,22 +23,19 @@ $container = get_theme_mod('understrap_container_type');
 				<main class="site-main content" id="main">
 					<h1 class="display-4 d-flex justify-content-center">Utvald <?php echo esc_html( single_cat_title() ); ?></h1>
 					<?php
-					if (have_posts()) :
-						get_template_part('loop-templates/content', 'category-utvalt');
-					?>
+					if ( have_posts() ) :
+						get_template_part( 'loop-templates/content', 'category-utvalt' );
+						?>
 						<h2 class="display-4 d-flex justify-content-center">Övriga objekt</h2>
-					<?php
-						get_template_part('loop-templates/content', 'other');
+						<?php
+						get_template_part( 'loop-templates/content', 'other' );
 					endif;
 					?>
 
 				</main><!-- #main -->
 			</div>
 			<!-- Do the primary sidebar check -->
-			<?php get_template_part('sidebar-templates/sidebar', 'primary'); ?>
-
-			<!--Denna del krävs för att sidebaren ska visa det som läggs till i widgets menyn -->
-			<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar-primary')) ?>
+			<?php get_template_part( 'sidebar-templates/sidebar', 'primary' ); ?>
 
 		</div><!-- .row -->
 

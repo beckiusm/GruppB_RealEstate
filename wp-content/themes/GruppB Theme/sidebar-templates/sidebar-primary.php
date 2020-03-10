@@ -1,10 +1,6 @@
-
-
-    <?php //dynamic_sidebar( 'sidebar-primary' ); ?>
-    <?php get_search_form(); ?>
-
-<?php 
-
-
-//echo do_shortcode('[searchandfilter fields="search,category,post_tag"]');
-
+<div class="col-md-3 mb-3">
+	<?php
+	get_search_form();
+	dynamic_sidebar( 'sidebar-primary' );
+	?>
+</div>

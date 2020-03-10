@@ -36,10 +36,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				</main><!-- #main -->
 			</div>
 			<!-- Do the primary sidebar check -->
-			<?php get_template_part('sidebar-templates/sidebar', 'primary'); ?>
-
-			<!--Denna del krävs för att sidebaren ska visa det som läggs till i widgets menyn -->
-			<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar-primary')) ?>
+			<?php get_template_part( 'sidebar-templates/sidebar', 'primary' ); ?>
 
 		</div><!-- .row -->
 

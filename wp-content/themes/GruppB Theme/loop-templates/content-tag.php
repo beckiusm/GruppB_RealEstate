@@ -30,11 +30,9 @@
 				}
 				?>
 				</div>
-				<!--<p class="card-text-address m-0"><?php echo esc_html( get_field( 'address' ) ); ?></p>-->
-				<p class="card-text-area m-0"><?php echo esc_html( get_field( 'boarea' ) ) . ' m² '; ?></p>
-				<p class="card-text-rooms m-0"><?php echo esc_html( get_field( 'rooms' ) ) . ' rum '; ?></p>
-				<p class="card-text-price mt-2 mb-0"><?php echo esc_html( number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></p>
-				<!--<p class="card-text-visning m-0"><?php echo esc_html( get_field( 'visning' ) ); ?></p>-->
+					<p class="card-text-area m-0"><?php echo esc_html( get_field( 'boarea' ) ) . ' m² '; ?></p>
+					<p class="card-text-rooms m-0"><?php echo esc_html( get_field( 'rooms' ) ) . ' rum '; ?></p>
+					<p class="card-text-price mt-2 mb-0"><?php echo esc_html( number_format( (float) get_field( 'utgangsbud' ), 0, ',', ' ' ) ) . ' kr '; ?></p>
 				<div class="card-tags">
 				<?php
 				if ( has_tag() ) {

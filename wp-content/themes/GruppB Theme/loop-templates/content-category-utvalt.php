@@ -7,13 +7,12 @@ $loop = new WP_Query(
 		'meta_value'     => true,
 	)
 );
-// Convert string to date
 setlocale( LC_ALL, '' );
 if ( $loop->have_posts() ) :
 	?>
 	<div class="row mb-3">
 		<?php
-		/* Do WP_Loop if we get results? */
+		/* Do WP_Loop if we get results */
 		while ( $loop->have_posts() ) :
 			$loop->the_post();
 			$time   = strtotime( get_field( 'visning' ) );

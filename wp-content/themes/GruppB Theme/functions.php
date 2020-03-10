@@ -49,7 +49,7 @@ function search_widget() {
 add_action( 'widgets_init', 'search_widget' );
 
 /**
- * 
+ * Retrieve tags for search
  */
 function advanced_search_query( $query ) {
 
@@ -65,11 +65,11 @@ function advanced_search_query( $query ) {
 }
 add_action( 'pre_get_posts', 'advanced_search_query', 1000 );
 
-function cptui_register_my_cpts_property() {
+/**
+ * Post Type: Properties.
+ */
 
-	/**
-	 * Post Type: Properties.
-	 */
+function cptui_register_my_cpts_property() {
 
 	$labels = array(
 		'name'                     => __( 'Properties', 'gruppB' ),
